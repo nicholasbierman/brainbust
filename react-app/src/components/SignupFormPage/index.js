@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 
-const SignUpForm = () => {
+const SignupForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -75,4 +75,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignupForm;

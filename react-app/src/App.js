@@ -16,16 +16,16 @@ function App() {
   return (
     <>
       <NavBar isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login" >
-            <LoginForm />
-          </Route>
-          <Route path="/signup">
-            <SignupForm />
-          </Route>
-        </Switch>
-      )}
+        {isLoaded && (
+          <Switch>
+            <Route path="/login" exact>
+              <LoginForm />
+            </Route>
+            <Route path="/signup" exact>
+              <SignupForm />
+            </Route>
+          </Switch>
+        )}
     </>
   );
 }
