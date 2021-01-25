@@ -12,10 +12,10 @@ const removeUser = () => ({
   type: REMOVE_USER
 });
 
-export const login = ({ credential, password }) => async (dispatch) => {
-  const res = await fetch('/api/session', {
+export const login = ({ email, password }) => async (dispatch) => {
+  const res = await fetch('/api/session/login', {
     method: 'POST',
-    body: JSON.stringify({ credential, password })
+    body: JSON.stringify({ email, password })
   });
   dispatch(setUser(res.data.user));
   return res;
