@@ -8,24 +8,24 @@ import * as sessionActions from "./store/session";
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
   return (
     <>
       <NavBar isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login" >
-            <LoginForm />
-          </Route>
-          <Route path="/signup">
-            <SignupForm />
-          </Route>
-        </Switch>
-      )}
+        {isLoaded && (
+          <Switch>
+            <Route path="/login" exact>
+              <LoginForm />
+            </Route>
+            <Route path="/signup" exact>
+              <SignupForm />
+            </Route>
+          </Switch>
+        )}
     </>
   );
 }

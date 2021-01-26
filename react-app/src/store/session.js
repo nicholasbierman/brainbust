@@ -12,24 +12,24 @@ const removeUser = () => ({
   type: REMOVE_USER
 });
 
-export const login = ({ credential, password }) => async (dispatch) => {
-  const res = await fetch('/api/session', {
+export const login = ({ email, password }) => async (dispatch) => {
+  const res = await fetch('/api/session/login', {
     method: 'POST',
-    body: JSON.stringify({ credential, password })
+    body: JSON.stringify({ email, password })
   });
-  dispatch(setUser(res.data.user));
+  dispatch(setUser(res.data));
   return res;
 };
 
 export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');
-  dispatch(setUser(res.data.user));
+  dispatch(setUser(res.data));
   return res;
 };
 
 export const signup = (user) => async (dispatch) => {
   const { username, email, password } = user;
-  const response = await fetch('/api/users', {
+  const response = await fetch('/api/users/signup', {
     method: 'POST',
     body: JSON.stringify({
       username,
@@ -38,12 +38,12 @@ export const signup = (user) => async (dispatch) => {
     })
   });
 
-  dispatch(setUser(response.data.user));
+  dispatch(setUser(response.data));
   return response;
 };
 
 export const logout = () => async (dispatch) => {
-  const response = await fetch('/api/session', {
+  const response = await fetch('/api/session/logout', {
     method: 'DELETE'
   });
   dispatch(removeUser());
