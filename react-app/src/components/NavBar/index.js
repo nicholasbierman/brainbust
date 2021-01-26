@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+import "./NavBar.css";
 import { getQuizzes } from '../../store/quiz'
 
 const NavBar = ({ isLoaded }) => {
@@ -20,8 +23,8 @@ const NavBar = ({ isLoaded }) => {
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <LoginFormModal />
+        <SignupFormModal />
       </>
     );
   }
