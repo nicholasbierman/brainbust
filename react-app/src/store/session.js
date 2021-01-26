@@ -17,13 +17,13 @@ export const login = ({ email, password }) => async (dispatch) => {
     method: 'POST',
     body: JSON.stringify({ email, password })
   });
-  dispatch(setUser(res.data.user));
+  dispatch(setUser(res.data));
   return res;
 };
 
 export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');
-  dispatch(setUser(res.data.user));
+  dispatch(setUser(res.data));
   return res;
 };
 
@@ -38,7 +38,7 @@ export const signup = (user) => async (dispatch) => {
     })
   });
 
-  dispatch(setUser(response.data.user));
+  dispatch(setUser(response.data));
   return response;
 };
 
