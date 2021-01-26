@@ -7,7 +7,7 @@ class Quiz(db.Model, UserMixin):
 
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(100), nullable = False, unique = False)
-  hashed_password = db.Column(db.String(255), nullable = False)
+  hashed_password = db.Column(db.String(255), nullable = True)
   is_private = db.Column(db.Boolean)
   question_quantity = db.Column(db.Integer, nullable = False)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
