@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import SignupForm from "./components/SignupFormPage";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
-//
 import MainPage from "./components/MainPage"
 
 function App() {
@@ -21,15 +20,6 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          {/* <Route path="/login" exact>
-              <LoginForm />
-            </Route> */}
-          <Route path="/signup" exact>
-            <SignupForm />
-          </Route>
-          <Route path="/users/:id" exact>
-            <User />
-          </Route>
           <Route path="/" exact>
             {!user && <MainPage />}
           </Route>
