@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie';
+
 
 export async function fetch(url, options = {}) {
   // set options.method to 'GET' if there is no method
@@ -12,7 +12,6 @@ export async function fetch(url, options = {}) {
   if (options.method.toUpperCase() !== 'GET') {
     options.headers['Content-Type'] =
       options.headers['Content-Type'] || 'application/json';
-    options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
   }
   // call the default window's fetch with the url and the options passed in
   const res = await window.fetch(url, options);
@@ -34,6 +33,3 @@ export async function fetch(url, options = {}) {
   return res;
 }
 
-export function restoreCSRF() {
-  return fetch('/api/csrf/restore');
-}
