@@ -7,7 +7,6 @@ class Quiz(db.Model, UserMixin):
 
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(100), nullable = False, unique = False)
-  category = db.Column(db.String(50), nullable = False, unique = False)
   hashed_password = db.Column(db.String(255), nullable = False)
   is_private = db.Column(db.Boolean)
   question_quantity = db.Column(db.Integer, nullable = False)
@@ -33,8 +32,8 @@ class Quiz(db.Model, UserMixin):
     return {
       "id": self.id,
       "name": self.name,
-      "category": self.category,
       "questions": self.question_quantity,
       "private": self.is_private,
-      "user": self.user_id
+      "user": self.user_id,
+      "category": self.category_id
     }
