@@ -8,7 +8,6 @@ def seed_quizzes():
     #             password='password')
     demo = Quiz(
         name= "Earth Science",
-        hashed_password=Quiz.hashed_password,
         is_private=False,
         question_quantity=1,
         user_id= 1,
