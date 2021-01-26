@@ -13,6 +13,7 @@ class Quiz(db.Model, UserMixin):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
 
+  user = db.relationship("User", back_populates="quizzes")
 
   @property
   def password(self):
