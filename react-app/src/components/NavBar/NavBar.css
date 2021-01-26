@@ -1,0 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+}
