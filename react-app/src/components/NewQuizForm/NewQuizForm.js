@@ -1,22 +1,31 @@
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addSingleQuiz } from '../../store/quiz';
+
 
 
 const NewQuizForm = () => {
-    const [ value, setValue ] = useState('');
-    const handleValueChange = (e) => {
-        setValue(e.target.value)
+    const [ name, setName ] = useState('')
+    const [ isPrivate, setIsPrivate ] = useState(false)
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("SUBMITTING FORM")
+        
+        dispatch(addSingleQuiz({name, isPrivate}))
     }
     return (
         <>
-            <form method="POST" action="/api/quizzes/new">
+            <form onSubmit={handleSubmit}>
                 <h1>Create New Quiz</h1>
                 <h2>A Quiz is a set of Questions</h2>
-                <input name="name"type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={handleValueChange}></input>
+                <input name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
                 <br></br>
                 <label for="is_private">Private?</label>
-                <input onchange={ handleValueChange }name="is_private" type="checkbox"></input>
+                <input value={ isPrivate } onchange={ (e) => setIsPrivate(true) }name="is_private" type="checkbox"></input>
                 <br></br>
-                <button>Continue</button>
+                <button type="submit">Continue</button>
             </form>
         </>
     )
