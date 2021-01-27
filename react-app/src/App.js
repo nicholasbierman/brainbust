@@ -5,6 +5,8 @@ import SignupForm from "./components/SignupFormPage";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
+//components
+import ProfilePage from "./components/ProfilePage" 
 
 function App() {
   const dispatch = useDispatch();
@@ -20,8 +22,11 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path="/profile" exact>
+            <ProfilePage />
+          </Route>
           <Route path="/" exact>
-            {!user && <MainPage />}
+            <MainPage />
           </Route>
         </Switch>
       )}

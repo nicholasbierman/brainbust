@@ -1,7 +1,8 @@
 import React from "react";
-import "./index.css";
+import "./MainPage.css";
 
 const MainPage = () => {
+
     return (
         <>
         <h1>BrainBust Main Page</h1>

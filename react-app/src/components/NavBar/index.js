@@ -30,7 +30,7 @@ const NavBar = ({ isLoaded }) => {
   }
 
   return (
-    <ul>
+    <ul classname="nav-bar">
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
