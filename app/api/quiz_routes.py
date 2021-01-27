@@ -18,5 +18,9 @@ def quiz(id):
 
 @quiz_routes.route('/new', methods=["POST"])
 def post_new_quiz():
-    form = NewQuizForm()
-    print(form.data)
+    # data = form.data
+    # new_quiz_form = NewQuizForm(
+    #     name=data["name"],
+    #     is_private=data["private"]
+    # )
+    return form.data
