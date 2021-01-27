@@ -5,6 +5,7 @@ import SignupForm from "./components/SignupFormPage";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
+import NewQuizForm from './components/NewQuizForm/NewQuizForm'
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             {!user && <MainPage />}
+          </Route>
+          <Route path="/quizzes/new">
+            <NewQuizForm />
           </Route>
         </Switch>
       )}
