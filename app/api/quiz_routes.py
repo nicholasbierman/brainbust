@@ -23,7 +23,8 @@ def post_new_quiz():
         quiz = Quiz(
             name=form.data['name'],
             is_private=form.data['is_private'],
-            question_quantity=1
+            question_quantity=1,
+            user_id=5
         )
         db.session.add(quiz)
         db.session.commit()

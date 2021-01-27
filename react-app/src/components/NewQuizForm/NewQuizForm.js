@@ -13,7 +13,7 @@ const NewQuizForm = () => {
         e.preventDefault();
         console.log("SUBMITTING FORM")
         
-        dispatch(addSingleQuiz({name, isPrivate}))
+        dispatch(addSingleQuiz({name, is_private: isPrivate}))
     }
     return (
         <>
@@ -23,7 +23,7 @@ const NewQuizForm = () => {
                 <input name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
                 <br></br>
                 <label for="is_private">Private?</label>
-                <input value={ isPrivate } onchange={ (e) => setIsPrivate(true) }name="is_private" type="checkbox"></input>
+                <input value={ isPrivate } onChange={ (e) => setIsPrivate(true) } name="is_private" type="checkbox"></input>
                 <br></br>
                 <button type="submit">Continue</button>
             </form>
