@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 const ProfilePage = () => {
       // const [user, setUser] = useState({});
       const user = useSelector(state => state.session.user);
+      const history = useHistory()
       // Notice we use useParams here instead of getting the params
       // From props.
     //   const { userId } = useParams();
-      if (!user) useHistory.push("/");
+      if(!user) history.push("/");
 
       return (
         <ul>
