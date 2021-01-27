@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addSingleQuiz } from '../../store/quiz';
 
 
@@ -9,11 +9,13 @@ const NewQuizForm = () => {
     const [ isPrivate, setIsPrivate ] = useState(false)
     const dispatch = useDispatch();
 
+    const user = useSelector(state => state.session.user)
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("SUBMITTING FORM")
         
-        dispatch(addSingleQuiz({name, is_private: isPrivate}))
+        dispatch(addSingleQuiz({name, is_private: isPrivate, user_id: user.id}))
     }
     return (
         <>
