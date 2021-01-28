@@ -36,7 +36,7 @@ const NavBar = ({ isLoaded }) => {
       <ul className="nav-bar">
         <li classname="logo-container">
           <NavLink exact to="/" className="logo-image">
-            <img src={logo} id="logo"></img>
+            <img alt="" src={logo} id="logo"></img>
           </NavLink>
         </li>
         <li id="title">
