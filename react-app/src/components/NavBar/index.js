@@ -13,7 +13,7 @@ const NavBar = ({ isLoaded }) => {
 
   useEffect(() => {
     dispatch(getQuizzes())
-  }, [])
+  }, [dispatch])
 
   let sessionLinks;
   if (sessionUser) {
@@ -30,7 +30,7 @@ const NavBar = ({ isLoaded }) => {
   }
 
   return (
-    <ul>
+    <ul className="nav-bar">
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}

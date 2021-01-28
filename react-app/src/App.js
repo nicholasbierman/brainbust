@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupForm from "./components/SignupFormPage";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
+import ProfilePage from "./components/ProfilePage" 
 import NewQuizForm from './components/NewQuizForm/NewQuizForm'
 
 function App() {
@@ -21,8 +21,11 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path="/profile" exact>
+            <ProfilePage />
+          </Route>
           <Route path="/" exact>
-            {!user && <MainPage />}
+            <MainPage />
           </Route>
           <Route path="/quizzes/new">
             <NewQuizForm />
