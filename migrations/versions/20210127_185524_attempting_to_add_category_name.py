@@ -17,7 +17,7 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column("categories", sa.Column("name", sa.String("le")))
+    op.add_column("categories", sa.Column('name', sa.String(length=50), nullable=False))
 
 
 def downgrade():
