@@ -32,7 +32,7 @@ def post_new_quiz():
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 # deleting a quiz
-@quiz_routes.route("/<int:id>/delete")
+@quiz_routes.route("/<int:id>/delete", methods=["DELETE"])
 def post_delete_quiz(id):
     quiz = Quiz.query.get(id)
     db.session.delete(quiz)
