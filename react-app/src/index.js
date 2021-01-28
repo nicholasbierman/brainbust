@@ -9,7 +9,6 @@ import { ModalProvider } from './context/Modal';
 import App from './App';
 
 import configureStore from './store';
-import { fetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as quizActions from './store/quiz'
 

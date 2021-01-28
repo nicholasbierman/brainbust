@@ -1,5 +1,3 @@
-import { fetch } from './csrf.js';
-
 const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
 

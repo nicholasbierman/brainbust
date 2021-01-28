@@ -22,11 +22,5 @@ def upgrade():
 
 
 def downgrade():
-<<<<<<< HEAD
-    op.drop_column('categories', sa.Column('name', sa.String(length=50), nullable=False))
-
-
-=======
     op.drop_column('categories', sa.Column(
         'name', sa.String(length=50), nullable=False))
->>>>>>> 38fd9ecd5bedf6410e6bd6dc3a2ba5c069a15e71

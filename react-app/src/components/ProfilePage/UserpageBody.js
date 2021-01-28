@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux"
 //Redirect user to quiz
-import { Redirect } from "react-router-dom"
+// import { Redirect } from "react-router-dom"
 //css
 import "./ProfilePage.css"
 
