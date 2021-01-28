@@ -2,21 +2,27 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editQuiz } from "../../store/quiz";
 
+// returned form filled with previous data from original form
+// add a cancel button
+// 
+
 const UpdateQuiz = () => {
+  //grab data from selected quiz (maybe global state for selected quiz)
+  
+  //backend recieves name, is_private, question_quantity, category
+  //state should be changed to current quiz data
   const [name, setName] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
 
-  const UpdateQuiz = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("UP FORM");
 
     dispatch(editQuiz({ 
         name, 
-        is_private: isPrivate, 
-        user_id: user.id }));
+        is_private: isPrivate}));
   };
   return (
     <>
