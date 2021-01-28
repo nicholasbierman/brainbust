@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import UserpageBody from "./UserpageBody"
 import SideUserBar from "./SideUserBar";
@@ -16,7 +16,9 @@ const ProfilePage = () => {
       // Notice we use useParams here instead of getting the params
       // From props.
     //   const { userId } = useParams();
-      if(!user) history.push("/");
+      if(!user){
+        return <Redirect to="/" />;
+      }
 
       return (
         <>
@@ -34,5 +36,5 @@ const ProfilePage = () => {
         </>
       );
     }
-    
+
 export default ProfilePage;

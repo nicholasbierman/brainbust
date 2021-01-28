@@ -14,7 +14,7 @@ const NewQuizForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("SUBMITTING FORM")
-        
+
         dispatch(addSingleQuiz({name, is_private: isPrivate, user_id: user.id}))
     }
     return (
@@ -26,6 +26,8 @@ const NewQuizForm = () => {
                 <br></br>
                 <label for="is_private">Private?</label>
                 <input value={ isPrivate } onChange={ (e) => setIsPrivate(true) } name="is_private" type="checkbox"></input>
+                <br></br>
+
                 <br></br>
                 <button type="submit">Continue</button>
             </form>

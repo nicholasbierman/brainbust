@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import Quiz, db
+from flask_login import login_required, current_user
 from ..forms.new_quiz_form import NewQuizForm
 quiz_routes = Blueprint('quizzes', __name__)
 
@@ -16,6 +17,7 @@ def quiz(id):
 
 # creating a quiz
 @quiz_routes.route('/new', methods=["POST"])
+@login_required
 def post_new_quiz():
     form = NewQuizForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -39,7 +41,7 @@ def post_delete_quiz(id):
     db.session.commit()
     return redirect("/")
 
-        
+
 
 # updating a quiz
 @quiz_routes.route("/<int:id>/update", methods=["PUT"])
@@ -52,4 +54,3 @@ def post_update_quiz(id):
     db.session.commit()
     # return redirect
     return redirect(f'/api/quizzes/{id}')
-
