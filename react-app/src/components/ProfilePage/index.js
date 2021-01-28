@@ -5,6 +5,7 @@ import UserpageBody from "./UserpageBody"
 import SideUserBar from "./SideUserBar";
 import TopDisplay from "./TopDisplay";
 import "./ProfilePage.css"
+
 // import { useParams } from "react-router-dom";
 
 

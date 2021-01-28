@@ -26,7 +26,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('category', sa.String(length=50), nullable=False),
-    sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('hashed_password', sa.String(length=255), nullable=True),
     sa.Column('is_private', sa.Boolean(), nullable=True),
     sa.Column('question_quantity', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
