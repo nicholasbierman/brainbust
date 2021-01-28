@@ -17,11 +17,12 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    console.log("hi")
-    return dispatch(sessionActions.login({ email, password }))
-            .then(res => history.push("/profile"))
-            .catch((res) => { if (res.data && res.data.errors) setErrors(res.data.errors) }
-    );
+    dispatch(sessionActions.login({ email, password }))
+    .then(history.push("/profile"))
+    console.log("After Dispatch User Info, Before History.Push")
+    // history.push("/profile")
+            // .catch((res) => { if (res.data && res.data.errors) setErrors(res.data.errors) }
+    // );
   };
 
   return (
