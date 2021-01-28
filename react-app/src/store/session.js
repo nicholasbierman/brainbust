@@ -23,6 +23,8 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');
+  debugger
+  console.log("Restore User response:", res.data)
   dispatch(setUser(res.data));
   return res;
 };
@@ -59,7 +61,7 @@ function reducer(state = initialState, action) {
       newState = Object.assign({}, state, { user: action.payload });
       return newState;
     case REMOVE_USER:
-      newState = Object.assign({}, state, { user: null });
+      newState = Object.assign({}, state, { user: undefined });
       return newState;
     default:
       return state;
