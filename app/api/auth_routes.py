@@ -54,6 +54,7 @@ def logout():
     logout_user()
     return {'message': 'User logged out'}
 
+
 @auth_routes.route('/unauthorized')
 def unauthorized():
     """

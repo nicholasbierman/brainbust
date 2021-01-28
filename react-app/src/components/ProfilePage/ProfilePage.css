@@ -17,7 +17,7 @@
 
 .page-container__top {
     grid-area: head;
-    height: 40px;
+    height: 150px;
 }
 
 .page-container__side {
