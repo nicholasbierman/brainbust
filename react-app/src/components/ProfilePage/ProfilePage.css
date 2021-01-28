@@ -1,0 +1,29 @@
+.page-container {
+    display: grid;
+    border: solid black 2px;
+    /* grid-template-columns: 4fr 10fr;
+    grid-template-rows: auto; */
+    grid-template-areas: "side head head head"
+                         "side head head head"
+                         "side body body body"
+                         "side body body body"
+                         "side body body body";
+}
+
+
+.page-container > * {
+    border: solid grey 1px;
+}
+
+.page-container__top {
+    grid-area: head;
+    height: 40px;
+}
+
+.page-container__side {
+    grid-area: side;
+}
+
+.page-container__body {
+    grid-area: body;
+}
