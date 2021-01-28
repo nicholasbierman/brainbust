@@ -1,6 +1,10 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import UserpageBody from "./UserpageBody"
+import SideUserBar from "./SideUserBar";
+import TopDisplay from "./TopDisplay";
+// import { useParams } from "react-router-dom";
 
 
 const ProfilePage = () => {
@@ -13,17 +17,17 @@ const ProfilePage = () => {
       if(!user) history.push("/");
 
       return (
-        <ul>
-          <li>
-            <strong>User Id</strong> {user.id}
-          </li>
-          <li>
-            <strong>Username</strong> {user.username}
-          </li>
-          <li>
-            <strong>Email</strong> {user.email}
-          </li>
-        </ul>
+        <>
+          <div>
+            <TopDisplay />
+          </div>
+          <div>
+            <SideUserBar />
+          </div>
+          <div>
+            <UserpageBody />
+          </div>
+        </>
       );
     }
     
