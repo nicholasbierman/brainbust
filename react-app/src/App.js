@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
-//components
 import ProfilePage from "./components/ProfilePage" 
+import NewQuizForm from './components/NewQuizForm/NewQuizForm'
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route path="/" exact>
             <MainPage />
+          </Route>
+          <Route path="/quizzes/new">
+            <NewQuizForm />
           </Route>
         </Switch>
       )}
