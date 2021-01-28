@@ -21,4 +21,6 @@ def upgrade():
 
 
 def downgrade():
-    pass
+    op.drop_column('categories', sa.Column('name', sa.String(length=50), nullable=False)
+
+
