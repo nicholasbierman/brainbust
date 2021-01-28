@@ -17,13 +17,15 @@
 
 .page-container__top {
     grid-area: head;
-    height: 150px;
+    height: 200px;
 }
 
 .page-container__side {
     grid-area: side;
+    /* height: 100vh; */
 }
 
 .page-container__body {
     grid-area: body;
+    height: 100vh;
 }
