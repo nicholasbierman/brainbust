@@ -5,6 +5,7 @@ from app.models import Quiz
 
 
 class NewQuizForm(FlaskForm):
-    name = StringField("Quiz Name", validators=[DataRequired()])
+    name = StringField("Quiz Name", validators=[
+                       DataRequired(message="Please give your quiz a name")])
     is_private = BooleanField("Private Quiz?")
     user_id = IntegerField("User")
