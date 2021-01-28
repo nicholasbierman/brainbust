@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch, useSelector  } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom"
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -17,6 +17,7 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    console.log("hi")
     return dispatch(sessionActions.login({ email, password }))
             .then(res => history.push("/profile"))
             .catch((res) => { if (res.data && res.data.errors) setErrors(res.data.errors) }
