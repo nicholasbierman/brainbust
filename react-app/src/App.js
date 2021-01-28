@@ -6,8 +6,7 @@ import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
 import ProfilePage from "./components/ProfilePage"
 import NewQuizForm from './components/NewQuizForm/NewQuizForm'
-//components
-import ProfilePage from "./components/ProfilePage" 
+
 
 function App() {
   const dispatch = useDispatch();
