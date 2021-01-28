@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required, login_user
 from app.models import User
+from .auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,6 +18,7 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
 
 @user_routes.route('/', methods=['POST'])
 def sign_up():
