@@ -1,5 +1,3 @@
-import { fetch } from './csrf.js';
-
 const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
 
@@ -15,7 +13,8 @@ const setQuizzes = (quizzes) => ({
 
 export const getQuizzes = () => async (dispatch) => {
     const res = await fetch('/api/quizzes')
-    dispatch(setQuizzes(res.data.quizzes))
+    const data = await res.json();
+    dispatch(setQuizzes(data.quizzes))
 }
 
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
