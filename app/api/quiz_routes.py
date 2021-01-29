@@ -30,7 +30,7 @@ def post_new_quiz():
             name=form.data['name'],
             is_private=form.data['is_private'],
             question_quantity=0,
-            user_id=form.data['user_id'],
+            user_id=current_user.id,
             category_id=form.data["category_id"]
         )
         db.session.add(quiz)
