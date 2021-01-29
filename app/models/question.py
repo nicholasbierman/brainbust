@@ -11,8 +11,7 @@ class Question(db.Model):
     answer_1 = db.Column(db.String(100), nullable=False)
     answer_2 = db.Column(db.String(100), nullable=False)
     answer_3 = db.Column(db.String(100), nullable=False)
-    answer_4 = db.Column(db.String(100), nullable=False)
-    correct_answer = db.Column(db.Integer)
+    correct_answer = db.Column(db.String(100), nullable=False)
     quiz_id = db.Column(db.Integer, db.ForeignKey("quizzes.id"))
 
     quiz = db.relationship("Quiz", back_populates="questions")

@@ -10,4 +10,3 @@ class NewQuizForm(FlaskForm):
                        DataRequired(message="Please give your quiz a name")])
     is_private = BooleanField("Private Quiz?")
     category_id = IntegerField("Category")
-    user_id = IntegerField("User")

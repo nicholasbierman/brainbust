@@ -10,12 +10,19 @@ const NewQuizForm = () => {
     const [selectedCategory, setSelectedCategory] = useState()
     const dispatch = useDispatch();
 
-    const user = useSelector(state => state.session.user)
+    // const user = useSelector(state => state.session.user)
     const categories = useSelector(state => state.categories.categories)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addSingleQuiz({ name, is_private: isPrivate, user_id: user.id, category_id: parseInt(selectedCategory) }))
+        dispatch(
+          addSingleQuiz({
+            name,
+            is_private: isPrivate,
+            category_id: parseInt(selectedCategory),
+          })
+        );
+        // dispatch(addSingleQuiz({ name, is_private: isPrivate, user_id: user.id, category_id: parseInt(selectedCategory) }))
     }
     return (
         <>

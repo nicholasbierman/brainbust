@@ -1,20 +1,31 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, Quiz, User
+from app.models import db, Quiz, Question, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_quizzes():
 
-    user = User.query.first()
-
-    # demo = User(username='Demo', email='demo@aa.io',
-    #             password='password')
-    demo = Quiz(
-        name= "Earth Science",
-        hashed_password= None,
-        is_private=False,
-        question_quantity=1,
-        user=user,
+    demo1 = Quiz(
+        name = "How Well Do You Know Computer Science?",
+        hashed_password = None,
+        is_private = False,
+        question_quantity = 5,
+        user_id = 1,
+        category_id = 1
     )
+    
+    demo2 = Quiz(
+        name = "Let's Make Drinks!",
+        hashed_password = None,
+        is_private = False,
+        question_quantity = 5,
+        user = 1,
+        category_id = 2
+    )
+
+
+
+
+
 
     db.session.add(demo)
 
