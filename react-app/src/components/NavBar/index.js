@@ -6,15 +6,20 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import "./NavBar.css";
 import { getQuizzes } from '../../store/quiz'
+import { getCategories } from '../../store/category';
+
 
 import logo from "../../logo/brain.jpg"
 
 const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);
+  const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
+  
 
   useEffect(() => {
-    dispatch(getQuizzes())
+    dispatch(getQuizzes());
+    dispatch(getCategories());
   }, [dispatch])
 
   let sessionLinks;

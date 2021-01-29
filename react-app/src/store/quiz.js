@@ -18,7 +18,6 @@ export const getQuizzes = () => async (dispatch) => {
 }
 
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
-    console.log(newQuiz);
     const response = await fetch('/api/quizzes/new', {
         method: "POST",
         headers: {
@@ -26,8 +25,10 @@ export const addSingleQuiz = (newQuiz) => async (dispatch) => {
         },
         body: JSON.stringify(newQuiz)
     })
-    console.log("HELLO", response, "RESPONSE SHOULD BE HERE")
-    dispatch(addQuiz(response.data))
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addQuiz(data))
+    }
 }
 
 const initialState = { quizList: [] };

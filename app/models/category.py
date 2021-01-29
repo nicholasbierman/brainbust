@@ -15,5 +15,5 @@ class Category(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "category-name": self.name,
+            "name": self.name,
         }
