@@ -28,7 +28,6 @@ def add_new_question():
             answer_1=form.data["answer_1"],
             answer_2=form.data["answer_2"],
             answer_3=form.data["answer_3"],
-            answer_4=form.data["answer_4"],
             correct_answer=form.data["correct_answer"],
             question_number=form.data[1],
             # ^^^ In order to get this functioning we will need to query
