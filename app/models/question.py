@@ -15,6 +15,8 @@ class Question(db.Model):
     correct_answer = db.Column(db.Integer)
     quiz_id = db.Column(db.Integer, db.ForeignKey("quizzes.id"))
 
+    quiz = db.relationship("Quiz", back_populates="questions")
+
     @property
     def answer(self):
         return self.correct_answer
