@@ -3,24 +3,10 @@ from app.models import db, Category
 
 # Adds a demo user, you can add other users here if you want
 def seed_categories():
-
-    # user = User.query.first()
-
-    # # demo = User(username='Demo', email='demo@aa.io',
-    # #             password='password')
-    # demo = Quiz(
-    #     name= "Earth Science",
-    #     hashed_password= None,
-    #     is_private=False,
-    #     question_quantity=1,
-    #     user=user,
-    # )
-    # id = db.Column(db.Integer, primary_key=True)
-    # name = db.Column(db.String(30), nullable=False)
     demo1 = Category(
         name= "Computer Science"
     )
-
+    
     demo2 = Category(
         name="Bartending"
     )

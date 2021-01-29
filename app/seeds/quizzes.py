@@ -12,12 +12,12 @@ def seed_quizzes():
         user_id = 1,
         category_id = 1
     )
-
-    demo2 = Quiz (
-        name = "Let's Make Drinks!"
-        hashed_password = ,
-        is_private = ,
-        question_quantity = ,
+    
+    demo2 = Quiz(
+        name = "Let's Make Drinks!",
+        hashed_password = None,
+        is_private = False,
+        question_quantity = 5,
         user = 1,
         category_id = 2
     )

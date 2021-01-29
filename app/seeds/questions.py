@@ -13,7 +13,8 @@ def seed_questions():
         correct_answer = "Micronesia",
         quiz_id = 1
     )
-      demo2 = Question(
+
+    demo2 = Question(
         question_number = 2,
         body = "The Harvard architecture for micro-controllers added which additional bus?",
         answer_1 = "Address",
@@ -22,7 +23,8 @@ def seed_questions():
         correct_answer = "Instruction",
         quiz_id = 1
     )
-      demo3 = Question(
+
+    demo3 = Question(
         question_number = 3,
         body = "What internet protocol was documented in RFC 1459?",
         answer_1 = "HTTP",
@@ -31,7 +33,8 @@ def seed_questions():
         correct_answer = "IRC",
         quiz_id = 1
     )
-      demo4 = Question(
+
+    demo4 = Question(
         question_number = 4,
         body = "What was the first company to use the term &quot;Golden Master&quot;?",
         answer_1 = "IBM",
@@ -40,7 +43,8 @@ def seed_questions():
         correct_answer = "Apple",
         quiz_id = 1
     )
-      demo5 = Question(
+    
+    demo5 = Question(
         question_number = 4,
         body = "What is the name given to layer 4 of the Open Systems Interconnection (ISO) model?",
         answer_1 = "Session",
