@@ -38,7 +38,7 @@ app.register_blueprint(quiz_routes, url_prefix='/api/quizzes')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
 app.register_blueprint(question_routes, url_prefix='/api/question')
 db.init_app(app)
-Migrate(app, db)
+Migrate(app, db, compare_type=True)
 
 # Application Security
 CORS(app)

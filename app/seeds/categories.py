@@ -6,12 +6,12 @@ def seed_categories():
     demo1 = Category(
         name= "Computer Science"
     )
-    
+
     demo2 = Category(
         name="Bartending"
     )
 
-    demo3= Category(
+    demo3 = Category(
         name="Zoology"
     )
 
@@ -44,19 +44,16 @@ def seed_categories():
     )
 
 
-
-    db.session.add(
-        demo1,
-        demo2,
-        demo3,
-        demo4,
-        demo5,
-        demo6,
-        demo7,
-        demo8,
-        demo9,
-        demo10
-        )
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
+    db.session.add(demo6)
+    db.session.add(demo7)
+    db.session.add(demo8)
+    db.session.add(demo9)
+    db.session.add(demo10)
 
     db.session.commit()
 
