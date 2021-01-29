@@ -16,6 +16,7 @@ class Quiz(db.Model, UserMixin):
 
     user = db.relationship("User", back_populates="quizzes")
     category = db.relationship("Category", back_populates="quizzes")
+    questions = db.relationship("Question", back_populates="quiz")
 
     @property
     def password(self):

@@ -35,7 +35,6 @@ const NewQuizForm = () => {
                 <label for="is_private">Private?</label>
                 <input value={ isPrivate } onChange={ (e) => setIsPrivate(true) } name="is_private" type="checkbox"></input>
                 <br></br>
-                <br></br>
                 <button type="submit">Continue</button>
             </form>
         </>
