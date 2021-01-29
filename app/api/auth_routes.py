@@ -18,11 +18,12 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-@auth_routes.route('/')
+@auth_routes.route('')
 def authenticate():
     """
     Authenticates a user.
     """
+    print("Current User:", current_user)
     if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}, 401
@@ -33,16 +34,20 @@ def login():
     """
     Logs a user in
     """
+    print("Current User:", current_user)
     form = LoginForm()
     print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("Form Data:", form.data)
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
+        print("Current User Logged In:", current_user)
         return user.to_dict()
+    print('Failed form.validate_on_submit()')
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -53,6 +58,7 @@ def logout():
     """
     logout_user()
     return {'message': 'User logged out'}
+
 
 @auth_routes.route('/unauthorized')
 def unauthorized():

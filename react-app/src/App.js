@@ -1,31 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginForm from "./components/LoginFormPage";
-import SignupForm from "./components/SignupFormPage";
 import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
+import MainPage from "./components/MainPage"
+import ProfilePage from "./components/ProfilePage"
+import NewQuizForm from './components/NewQuizForm'
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(true);
+  const sessionUser = useSelector((state) => state.session.user);
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(false));
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
       <NavBar isLoaded={isLoaded} />
-        {isLoaded && (
-          <Switch>
-            <Route path="/login" exact>
-              <LoginForm />
-            </Route>
-            <Route path="/signup" exact>
-              <SignupForm />
-            </Route>
-          </Switch>
-        )}
+      {isLoaded && (
+        <Switch>
+          <Route path="/profile" exact>
+            <ProfilePage />
+          </Route>
+          <Route path="/" exact>
+            {sessionUser && <Redirect to="/profile" />}
+            <MainPage />
+          </Route>
+          <Route path="/quizzes/new">
+            <NewQuizForm />
+          </Route>
+        </Switch>
+      )}
     </>
   );
 }
