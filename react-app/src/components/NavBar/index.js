@@ -40,7 +40,7 @@ const NavBar = ({ isLoaded }) => {
     <div nav-bar__container>
       <ul className="nav-bar">
         <li classname="logo-container">
-          <NavLink exact to="/" className="logo-image">
+          <NavLink exact to={ sessionUser ? '/profile': '/' } className="logo-image">
             <img alt="" src={logo} id="logo"></img>
           </NavLink>
         </li>

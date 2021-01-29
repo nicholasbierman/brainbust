@@ -1,25 +1,24 @@
-import React, { useState  } from "react";
+import React, { useState, useEffect  } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom"
 import "./LoginForm.css";
 
 function LoginForm() {
   const dispatch = useDispatch();
   const history = useHistory()
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  // if (sessionUser) return <Redirect to="/profile" />;
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     dispatch(sessionActions.login({ email, password }))
-    .then(history.push("/profile"))
-    console.log("After Dispatch User Info, Before History.Push")
+    //return <Redirect to="/profile" />
     // history.push("/profile")
             // .catch((res) => { if (res.data && res.data.errors) setErrors(res.data.errors) }
     // );
