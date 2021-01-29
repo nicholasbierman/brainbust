@@ -15,6 +15,7 @@ class Quiz(db.Model, UserMixin):
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
 
     user = db.relationship("User", back_populates="quizzes")
+    questions = db.relationship("Question", back_populates="quiz")
     category = db.relationship("Category", back_populates="quizzes")
 
     @property

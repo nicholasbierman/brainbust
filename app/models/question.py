@@ -7,12 +7,14 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_number = db.Column(db.Integer, nullable=False)
     body = db.Column(db.String(260), nullable=False, unique=False)
-    question_type = db.Column(db.String(50), nullable=False, unique=False)
+    question_type = db.Column(db.String(50), nullable=True, unique=False)
     answer_1 = db.Column(db.String(100), nullable=False)
     answer_2 = db.Column(db.String(100), nullable=False)
     answer_3 = db.Column(db.String(100), nullable=False)
     correct_answer = db.Column(db.String(100), nullable=False)
     quiz_id = db.Column(db.Integer, db.ForeignKey("quizzes.id"))
+
+    quiz = db.relationship("Quiz", back_populates="questions")
 
     @property
     def answer(self):

@@ -1,8 +1,10 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, Question
+from app.models import db, Question, Quiz
 
 # Adds a demo user, you can add other users here if you want
 def seed_questions():
+
+    quizzes = Quiz.query.all()
 
     demo1 = Question(
         question_number = 1,
@@ -11,7 +13,7 @@ def seed_questions():
         answer_2 = "Tuvalu",
         answer_3 = "Marshall Islands",
         correct_answer = "Micronesia",
-        quiz_id = 1
+        quiz = quizzes[0]
     )
 
     demo2 = Question(
@@ -21,7 +23,7 @@ def seed_questions():
         answer_2 = "Data",
         answer_3 = "Control",
         correct_answer = "Instruction",
-        quiz_id = 1
+        quiz = quizzes[0]
     )
 
     demo3 = Question(
@@ -31,7 +33,7 @@ def seed_questions():
         answer_2 = "HTTPS",
         answer_3 = "FTP",
         correct_answer = "IRC",
-        quiz_id = 1
+        quiz = quizzes[0]
     )
 
     demo4 = Question(
@@ -41,7 +43,7 @@ def seed_questions():
         answer_2 = "Microsoft",
         answer_3 = "Google",
         correct_answer = "Apple",
-        quiz_id = 1
+        quiz = quizzes[0]
     )
 
     demo5 = Question(
@@ -51,7 +53,7 @@ def seed_questions():
         answer_2 = "Data link",
         answer_3 = "Network",
         correct_answer = "Transport",
-        quiz_id = 1
+        quiz = quizzes[0]
     )
 
     demo6 = Question(
@@ -61,7 +63,7 @@ def seed_questions():
         answer_2 = "The customers like to see the bartender make the drink and verify the amount of alcohol poured.",
         answer_3 = "It makes a good workstation, and the bartender is very efficient making drinks there.",
         correct_answer = "All of the above.",
-        quiz_id = 2
+        quiz = quizzes[1]
     )
 
     demo7 = Question(
@@ -71,7 +73,7 @@ def seed_questions():
         answer_2 = "The ingredients need to be chilled.",
         answer_3 = "Several shots are usually prepared at once.",
         correct_answer = "All the above.",
-        quiz_id = 2
+        quiz = quizzes[1]
     )
 
     demo8 = Question(
@@ -81,7 +83,7 @@ def seed_questions():
         answer_2 = "Add 1/2 oz of Vodka on top.",
         answer_3 = "Add 1/2 oz Peach Schnapps on top.",
         correct_answer = "Add 1/2 Galliano on top.",
-        quiz_id = 2
+        quiz = quizzes[1]
     )
 
     demo9 = Question(
@@ -91,7 +93,7 @@ def seed_questions():
         answer_2 = "That have ice.",
         answer_3 = "That needs to be mixed by the customer.",
         correct_answer = "That has ice and at least 2 ingredients.",
-        quiz_id = 2
+        quiz = quizzes[1]
     )
 
     demo10 = Question(
@@ -101,7 +103,7 @@ def seed_questions():
         answer_2 = "They are close to each other in the alphabet.",
         answer_3 = "They taste similar.",
         correct_answer = "They are used in Margaritas, which are very popular.",
-        quiz_id = 2
+        quiz = quizzes[1]
     )
 
     demo11 = Question(
@@ -111,7 +113,7 @@ def seed_questions():
         answer_2 = "Schizont",
         answer_3 = "Gamout",
         correct_answer = "Ookinete",
-        quiz_id = 3
+        quiz = quizzes[2]
     )
 
     demo12 = Question(
@@ -121,7 +123,7 @@ def seed_questions():
         answer_2 = "Sporozoite",
         answer_3 = "Minuta form",
         correct_answer = "Mature cyst",
-        quiz_id = 3
+        quiz = quizzes[2]
     )
 
     demo13 = Question(
@@ -131,7 +133,7 @@ def seed_questions():
         answer_2 = "Multiple",
         answer_3 = "Enlarge",
         correct_answer = "Disappear",
-        quiz_id = 3
+        quiz = quizzes[2]
     )
 
     demo14 = Question(
@@ -141,7 +143,7 @@ def seed_questions():
         answer_2 = "Toad",
         answer_3 = "Salamander",
         correct_answer = "Tortoise",
-        quiz_id = 3
+        quiz = quizzes[2]
     )
 
     demo15 = Question(
@@ -151,7 +153,7 @@ def seed_questions():
         answer_2 = "Losch",
         answer_3 = "Dobell",
         correct_answer = "Lambel",
-        quiz_id = 3
+        quiz = quizzes[2]
     )
 
     demo16 = Question(
@@ -161,7 +163,7 @@ def seed_questions():
         answer_2 = "because green plants are phototropic",
         answer_3 = "light stimulates plant cells on the lighted side to grow faster",
         correct_answer = "auxin accumulates on shaded side stimulating greater cell elongation",
-        quiz_id = 4
+        quiz = quizzes[3]
     )
 
     demo17 = Question(
@@ -171,7 +173,7 @@ def seed_questions():
         answer_2 = "dunk",
         answer_3 = "daytime",
         correct_answer = "night",
-        quiz_id = 4
+        quiz = quizzes[3]
     )
 
     demo18 = Question(
@@ -181,7 +183,7 @@ def seed_questions():
         answer_2 = "ethylene",
         answer_3 = "indole acetic acid",
         correct_answer = "gibberellins",
-        quiz_id = 4
+        quiz = quizzes[3]
     )
 
     demo19 = Question(
@@ -191,7 +193,7 @@ def seed_questions():
         answer_2 = "prevents guttation",
         answer_3 = "increases transpiration",
         correct_answer = "reduces transpiration",
-        quiz_id = 4
+        quiz = quizzes[3]
     )
 
     demo20 = Question(
@@ -201,32 +203,30 @@ def seed_questions():
         answer_2 = "cryogenics",
         answer_3 = "cryotherapy",
         correct_answer = "vernalization",
-        quiz_id = 4
+        quiz = quizzes[3]
     )
     
 
-    db.session.add(
-        demo1,
-        demo2,
-        demo3,
-        demo4,
-        demo5,
-        demo6,
-        demo7,
-        demo8,
-        demo9,
-        demo10,
-        demo11,
-        demo12,
-        demo13,
-        demo14,
-        demo15,
-        demo16,
-        demo17,
-        demo18,
-        demo19,
-        demo20
-        )
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
+    db.session.add(demo6)
+    db.session.add(demo7)
+    db.session.add(demo8)
+    db.session.add(demo9)
+    db.session.add(demo10)
+    db.session.add(demo11)
+    db.session.add(demo12)
+    db.session.add(demo13)
+    db.session.add(demo14)
+    db.session.add(demo15)
+    db.session.add(demo16)
+    db.session.add(demo17)
+    db.session.add(demo18)
+    db.session.add(demo19)
+    db.session.add(demo20)
 
     db.session.commit()
 

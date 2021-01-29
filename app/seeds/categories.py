@@ -4,69 +4,56 @@ from app.models import db, Category
 # Adds a demo user, you can add other users here if you want
 def seed_categories():
     demo1 = Category(
-        id = 1,
         name= "Computer Science"
     )
 
     demo2 = Category(
-        id = 2,
         name="Bartending"
     )
 
     demo3 = Category(
-        id = 3,
         name="Zoology"
     )
 
     demo4 = Category(
-        id = 4,
         name="Plant Science"
     )
 
     demo5 = Category(
-        id = 5,
         name="Plumbing"
     )
 
     demo6 = Category(
-        id = 6,
         name="Cosmetology"
     )
 
     demo7 = Category(
-        id = 7,
         name="Linear Algebra"
     )
 
     demo8 = Category(
-        id = 8,
         name="Music"
     )
 
     demo9 = Category(
-        id = 9,
         name="Cooking"
     )
 
     demo10 = Category(
-        id = 10,
         name="Mental Health"
     )
 
 
-
-    db.session.add(
-        demo1,
-        demo2,
-        demo3,
-        demo4,
-        demo5,
-        demo6,
-        demo7,
-        demo8,
-        demo9,
-        demo10
-        )
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
+    db.session.add(demo6)
+    db.session.add(demo7)
+    db.session.add(demo8)
+    db.session.add(demo9)
+    db.session.add(demo10)
 
     db.session.commit()
 

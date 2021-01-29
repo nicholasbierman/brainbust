@@ -1,16 +1,19 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, Quiz, Question, User
+from app.models import db, Quiz, Question, User, Category
 
 # Adds a demo user, you can add other users here if you want
 def seed_quizzes():
+
+    users = User.query.all()
+    categories = Category.query.all()
 
     demo1 = Quiz(
         name = "How Well Do You Know Computer Science?",
         hashed_password = None,
         is_private = False,
         question_quantity = 5,
-        user_id = 1,
-        category_id = 1
+        user = users[0],
+        category = categories[0]
     )
 
     demo2 = Quiz(
@@ -18,8 +21,8 @@ def seed_quizzes():
         hashed_password = None,
         is_private = False,
         question_quantity = 5,
-        user = 1,
-        category_id = 2
+        user = users[0],
+        category = categories[1]
     )
 
     demo3 = Quiz(
@@ -27,8 +30,8 @@ def seed_quizzes():
         hashed_password = None,
         is_private = False,
         question_quantity = 5,
-        user = 1,
-        category_id = 3
+        user = users[0],
+        category = categories[2]
     )
 
     demo4 = Quiz(
@@ -36,13 +39,16 @@ def seed_quizzes():
         hashed_password = None,
         is_private = False,
         question_quantity = 5,
-        user = 1,
-        category_id = 4
+        user = users[0],
+        category = categories[3]
     )
 
 
 
-    db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
 
     db.session.commit()
 
