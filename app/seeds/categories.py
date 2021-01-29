@@ -22,39 +22,39 @@ def seed_categories():
     )
 
     demo2 = Category(
-        name=
+        name="Bartending"
     )
 
     demo3= Category(
-        name=
+        name="Zoology"
     )
 
     demo4 = Category(
-        name=
+        name="Plant Science"
     )
 
     demo5 = Category(
-        name=
+        name="Plumbing"
     )
 
     demo6 = Category(
-        name=
+        name="Cosmetology"
     )
 
     demo7 = Category(
-        name=
+        name="Linear Algebra"
     )
 
     demo8 = Category(
-        name=
+        name="Music"
     )
 
     demo9 = Category(
-        name=
+        name="Cooking"
     )
 
     demo10 = Category(
-        name=
+        name="Mental Health"
     )
 
 

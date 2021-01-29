@@ -4,71 +4,51 @@ from app.models import db, Question
 # Adds a demo user, you can add other users here if you want
 def seed_questions():
 
-    # user = User.query.first()
-
-    # # demo = User(username='Demo', email='demo@aa.io',
-    # #             password='password')
-    # demo = Quiz(
-    #     name= "Earth Science",
-    #     hashed_password= None,
-    #     is_private=False,
-    #     question_quantity=1,
-    #     user=user,
-    # )
-    #  question_number = db.Column(db.Integer, nullable=False)
-    # body = db.Column(db.String(260), nullable=False, unique=False)
-    # question_type = db.Column(db.String(50), nullable=False, unique=False)
-    # answer_1 = db.Column(db.String(100), nullable=False)
-    # answer_2 = db.Column(db.String(100), nullable=False)
-    # answer_3 = db.Column(db.String(100), nullable=False)
-    # answer_4 = db.Column(db.String(100), nullable=False)
-    # correct_answer = db.Column(db.Integer)
-    # quiz_id = db.Column(db.Integer, db.ForeignKey("quizzes.id"))
     demo1 = Question(
-        question_number=1,
-        body= "The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation?",
-        question_type="MCQ"
-        answer_1= "Fiji",
-        answer_2="Tuvalu",
-        answer_3="Marshall Islands",
-        answer_4="Micronesia",
-        # correct_answer="Micronesia",
-        quiz_id=
+        question_number = 1,
+        body = "The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation?",
+        answer_1 = "Fiji",
+        answer_2 = "Tuvalu",
+        answer_3 = "Marshall Islands",
+        correct_answer = "Micronesia",
+        quiz_id = 1
     )
       demo2 = Question(
-        question_number=2,
-        body=,
-        question_type="MCQ"
-        answer_1=,
-        answer_2=,
-        answer_3=,
-        answer_4=,
-        correct_answer=,
-        quiz_id=
+        question_number = 2,
+        body = "The Harvard architecture for micro-controllers added which additional bus?",
+        answer_1 = "Address",
+        answer_2 = "Data",
+        answer_3 = "Control",
+        correct_answer = "Instruction",
+        quiz_id = 1
     )
       demo3 = Question(
-        question_number=3,
-        body=,
-        question_type="MCQ"
-        answer_1=,
-        answer_2=,
-        answer_3=,
-        answer_4=,
-        correct_answer=,
-        quiz_id=
+        question_number = 3,
+        body = "What internet protocol was documented in RFC 1459?",
+        answer_1 = "HTTP",
+        answer_2 = "HTTPS",
+        answer_3 = "FTP",
+        correct_answer = "IRC",
+        quiz_id = 1
     )
       demo4 = Question(
-        question_number=4,
-        body=,
-        question_type="MCQ"
-        answer_1=,
-        answer_2=,
-        answer_3=,
-        answer_4=,
-        correct_answer=,
-        quiz_id=
+        question_number = 4,
+        body = "What was the first company to use the term &quot;Golden Master&quot;?",
+        answer_1 = "IBM",
+        answer_2 = "Microsoft",
+        answer_3 = "Google",
+        correct_answer = "Apple",
+        quiz_id = 1
     )
-
+      demo5 = Question(
+        question_number = 4,
+        body = "What is the name given to layer 4 of the Open Systems Interconnection (ISO) model?",
+        answer_1 = "Session",
+        answer_2 = "Data link",
+        answer_3 = "Network",
+        correct_answer = "Transport",
+        quiz_id = 1
+    )
 
 
     db.session.add(
