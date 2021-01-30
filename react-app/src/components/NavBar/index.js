@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -24,8 +24,8 @@ const NavBar = ({ isLoaded }) => {
     padding: '0 30px',
   };
 
-  const email = useState("demo@aa.io");
-  const password = useState("password");
+  const email = "demo@aa.io";
+  const password = "password";
 
   const handleClick = (e) => {
     e.preventDefault();
