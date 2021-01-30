@@ -5,8 +5,6 @@ from flask_login import login_required, current_user
 from ..forms.new_question_form import NewQuestionForm
 question_routes = Blueprint('question', __name__)
 
-#Commit change
-
 
 @question_routes.route('/')
 def get_questions():

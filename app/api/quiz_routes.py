@@ -66,3 +66,9 @@ def post_update_quiz(id):
     quiz.question_quantity = content["questions"]
     db.session.commit()
     return redirect(f'/api/quizzes/{id}')
+
+# retrieving quizzes by category
+@quiz_routes.route('/category/<int:id>')
+def get_quiz_by_category(id):
+    quizzes = Quiz.query.filter(Quiz.category_id == id)
+    return {"quizzes": [quiz.to_dict() for quiz in quizzes]}
