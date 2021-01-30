@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import DemoLoginFormModal from '../DemoLoginFormModal';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import "./NavBar.css";
@@ -17,9 +16,16 @@ const NavBar = ({ isLoaded }) => {
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
   
+  const style = {
+    background: 'linear-gradient(0deg, rgba(161,91,226,0.8793625356125356) 0%, rgba(40,27,255,1) 100%)',
+    border: 0,
+    color: 'white',
+    height: '100px',
+    padding: '0 30px',
+  };
+
   const email = useState("demo@aa.io");
   const password = useState("password");
-  
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -39,8 +45,7 @@ const NavBar = ({ isLoaded }) => {
   } else {
     sessionLinks = (
       <>
-        <NavLink path to="/login" onClick={handleClick}>Demo Login</NavLink>
-        <DemoLoginFormModal />
+        <button style={style} onClick={handleClick}>Demo Login</button>
         <LoginFormModal />
         <SignupFormModal />
       </>
