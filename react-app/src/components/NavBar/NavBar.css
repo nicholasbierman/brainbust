@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: white;
+  background: linear-gradient(0deg, rgba(161,91,226,0.8793625356125356) 0%, rgba(40,27,255,1) 100%);
   height: 100px;
   width: 100%;
   margin: 0;

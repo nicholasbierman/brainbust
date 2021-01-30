@@ -19,6 +19,11 @@ def quiz(id):
 
 # creating a quiz
 
+@quiz_routes.route('/user/<int:id>')
+def get_quiz_questions(id):
+    quizzes = Quiz.query.filter(Quiz.user_id == id)
+    return {"quizzes": [quiz.to_dict() for quiz in quizzes]}
+
 
 @quiz_routes.route('/new', methods=["POST"])
 @login_required
