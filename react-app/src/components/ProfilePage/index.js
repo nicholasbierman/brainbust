@@ -8,25 +8,16 @@ import SideUserBar from "./SideUserBar";
 import TopDisplay from "./TopDisplay";
 import "./ProfilePage.css"
 
-// import { useParams } from "react-router-dom";
-
 
 const ProfilePage = () => {
   const user = useSelector(state => state.session.user);
-
-      const dispatch = useDispatch();
-      useEffect(() => {
-        dispatch(getUserQuizzes(user.id));
-        dispatch(getCategories());
-      }, [dispatch, user])
-      // const [user, setUser] = useState({});
-      // const history = useHistory()
-      // Notice we use useParams here instead of getting the params
-      // From props.
-    //   const { userId } = useParams();
-      if(!user){
-        return <Redirect to="/" />;
-      }
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserQuizzes(user.id));
+    dispatch(getCategories());
+  }, [dispatch, user])
+  
 
       return (
         <>

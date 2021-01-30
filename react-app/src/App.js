@@ -25,7 +25,8 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/profile" exact>
-            <ProfilePage />
+            {sessionUser && <ProfilePage />}
+            {!sessionUser && <Redirect to="/" />}
           </Route>
           <Route path="/quiz/:id" exact>
             <QuizPage />
