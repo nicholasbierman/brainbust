@@ -17,8 +17,8 @@ const NavBar = ({ isLoaded }) => {
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
   
-  const [email, setEmail] = useState("demo@aa.io");
-  const [password, setPassword] = useState("password");
+  const email = useState("demo@aa.io");
+  const password = useState("password");
   
 
   const handleClick = (e) => {
