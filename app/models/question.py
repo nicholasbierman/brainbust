@@ -36,7 +36,6 @@ class Question(db.Model):
             "answer_1" : self.answer_1,
             "answer_2" : self.answer_2,
             "answer_3" : self.answer_3,
-            "answer_4" : self.answer_4,
             "correct_answer": self.correct_answer,
             "quiz_id": self.quiz_id
         }
