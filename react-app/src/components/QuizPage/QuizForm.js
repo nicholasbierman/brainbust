@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom"
+import { getQuestions } from "../../store/question";
 
-const QuizForm = ({ amountOfQuestions, questions }) => {
-    // const questions = useSelector((state) => state.questions.ques);
-    console.log("first length", questions.length)
+const QuizForm = ({ amountOfQuestions }) => {
+    const history = useHistory();
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const questions = useSelector((state) => state.questions.ques);
+    // console.log("first length", questions.length)
     const [index, setIndex] = useState(0)
-    const [question, setQuestion] = useState([]);
+    // const [question, setQuestion] = useState([]);
+    // const [question, setQuestion] = useState(questions[0]);
 
-    console.log("second length", questions.length);
-    console.log("QUESTIONS", questions)
-    console.log(question)
+    // console.log("second length", questions.length);
+    // console.log("QUESTIONS", questions)
+    // console.log(question)
+    const [question, setQuestion] = useState({});
+
+    useEffect(() => {
+      console.log(id)
+      dispatch(getQuestions(id));
+    //   setQuestion(questions[0])
+    }, []);
+
+    useEffect(() => {
+      setQuestion(questions[0]);
+    }, [questions]);
 
     useEffect(()=> {
         setQuestion(questions[index])
-    },[])
-
+    },[index])
 
     let array;
-    if(question ) {
+    if(question) {
         array = [
         "answer_1", 
         "answer_2", 
@@ -37,10 +53,10 @@ const QuizForm = ({ amountOfQuestions, questions }) => {
 
     
     const handleClick = (e) => {
-        console.log(e.target)
+        console.log(questions)
         if(questions.length) {
             setIndex(index + 1)
-            setQuestion(questions[index]);
+            // setQuestion(questions[index]);
         } else {
             setQuestion(null)
         }
@@ -52,6 +68,7 @@ const QuizForm = ({ amountOfQuestions, questions }) => {
       <div className="quiz-form__question">
         <h1>{question ? question.question_body : "Your Score Is"}</h1>
       </div>
+      {!question && <button onClick={() => history.push("/profile")}>Back To Some Quizzes</button>}
       {question && (
       <div className="quiz-button-container">
         <button onClick={handleClick}>{randomAnswer()}</button>

@@ -1,5 +1,5 @@
 // import React, {useEffect} from "react";
-// import { useSelector }from "react-redux"
+import { useSelector }from "react-redux"
 // import { useHistory } from "react-router-dom"
 import "./MainPage.css";
 // import { Redirect } from "react-router-dom"

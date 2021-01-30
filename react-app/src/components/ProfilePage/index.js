@@ -12,13 +12,14 @@ import "./ProfilePage.css"
 
 
 const ProfilePage = () => {
+  const user = useSelector(state => state.session.user);
+
       const dispatch = useDispatch();
       useEffect(() => {
-        dispatch(getUserQuizzes());
+        dispatch(getUserQuizzes(user.id));
         dispatch(getCategories());
-      }, [dispatch])
+      }, [dispatch, user])
       // const [user, setUser] = useState({});
-      const user = useSelector(state => state.session.user);
       // const history = useHistory()
       // Notice we use useParams here instead of getting the params
       // From props.

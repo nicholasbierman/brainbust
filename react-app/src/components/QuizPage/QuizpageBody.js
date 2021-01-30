@@ -5,7 +5,7 @@ import QuizForm from "./QuizForm"
 import { getQuestions } from "../../store/question"
 
 const QuizpageBody = ({ id }) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const questions = useSelector((state) => state.questions.ques);
     const quizzes = useSelector(state => state.quizzes.quizList);
     const [ quiz ] = quizzes.filter(theQuiz => {
@@ -13,19 +13,19 @@ const QuizpageBody = ({ id }) => {
     })
     
 
-    // useEffect(() => {
-    //     dispatch(getQuestions(id))
-    // },[dispatch])
+    useEffect(() => {
+        dispatch(getQuestions(id))
+    },[dispatch])
     
     if(!quiz) return null
 
     return (
       <>
         <h1>{quiz.name}</h1>
-        <div clssName="category-question-container">
+        <div className="category-question-container">
             <p>Category: {quiz.category}</p>
         </div>
-        {questions && <QuizForm amountOfQuestions={quiz.questions} questions={questions}/>}
+        {questions && <QuizForm amountOfQuestions={quiz.questions} id={id} />}
       </>
     );
 
