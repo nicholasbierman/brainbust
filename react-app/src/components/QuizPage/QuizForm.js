@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const QuizForm = (props) => {
-    const questions = props.questions
+const QuizForm = ({ amountOfQuestions }) => {
+    const questions = useSelector((state) => state.questions.ques);
     console.log("first length", questions.length)
     const [question, setQuestion] = useState(questions.shift())
     console.log("second length", questions.length);
@@ -38,6 +38,7 @@ const QuizForm = (props) => {
 
   return (
     <div className="quiz-form-container">
+      <p>{question.question_number} / {amountOfQuestions}</p>
       <div className="quiz-form__question">
         <h1>{question ? question.question_body : "Your Score Is"}</h1>
       </div>
