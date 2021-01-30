@@ -1,4 +1,4 @@
-const SET_QUESTIONS = "/category/setQuizQUESTIONS";
+const SET_QUESTIONS = "/questions/setQuizQUESTIONS";
 
 const setQuestions = (questions) => ({
   type: SET_QUESTIONS,

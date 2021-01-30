@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 // import { useSelector } from "react-redux";
 
-const QuizForm = ({ questions }) => {
+const QuizForm = (props) => {
+    const questions = props.questions
     console.log("first length", questions.length)
-
     const [question, setQuestion] = useState(questions.shift())
     console.log("second length", questions.length);
 
