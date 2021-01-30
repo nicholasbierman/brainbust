@@ -5,7 +5,7 @@ import QuizForm from "./QuizForm"
 import { getQuestions } from "../../store/question"
 
 const QuizpageBody = ({ id }) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const questions = useSelector((state) => state.questions.ques);
     const quizzes = useSelector(state => state.quizzes.quizList);
     const [ quiz ] = quizzes.filter(theQuiz => {
@@ -13,9 +13,9 @@ const QuizpageBody = ({ id }) => {
     })
     
 
-    useEffect(() => {
-        dispatch(getQuestions(id))
-    },[dispatch])
+    // useEffect(() => {
+    //     dispatch(getQuestions(id))
+    // },[dispatch])
     
     if(!quiz) return null
 

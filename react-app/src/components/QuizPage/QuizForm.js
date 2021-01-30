@@ -5,9 +5,16 @@ const QuizForm = ({ amountOfQuestions, questions }) => {
     // const questions = useSelector((state) => state.questions.ques);
     console.log("first length", questions.length)
     const [index, setIndex] = useState(0)
-    const [question, setQuestion] = useState(questions[index]);
+    const [question, setQuestion] = useState([]);
+
     console.log("second length", questions.length);
     console.log("QUESTIONS", questions)
+    console.log(question)
+
+    useEffect(()=> {
+        setQuestion(questions[index])
+    },[])
+
 
     let array;
     if(question ) {

@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
+import { getQuestions } from "../../store/question";
 //Redirect user to quiz
 // import { Redirect } from "react-router-dom"
 //css
@@ -9,12 +10,15 @@ import "./ProfilePage.css"
 const UserpageBody = () => {
   const quizzes = useSelector(state => state.quizzes.quizList);
   const history = useHistory();
+  const dispatch = useDispatch()
 
-  // const directUserToQuiz = (quizId) => {
-  //   console.log("hello", quizId)
-  //   //use redirect to go to quiz
-  //   //dispatch to set single (current) quiz in global state??
-  // }
+  // console.log("hello", quizId)
+  //   dispatch(getQuestions(id))
+  //   return history.push(`/quiz/${quizId}`
+  const directUserToQuiz = (quizId) => {
+    dispatch(getQuestions(quizId))
+    history.push(`/quiz/${quizId}`)
+  }
 
   return (
     <div className="body-container">
@@ -30,7 +34,7 @@ const UserpageBody = () => {
             <div>{quiz.name}</div>
             <div>{quiz.category}</div>
             <button className="take-quiz-button"
-            onClick={() => history.push(`/quiz/${quiz.id}`)}>Take Quiz</button>
+            onClick={() => directUserToQuiz(quiz.id)}>Take Quiz</button>
           </div>
         );
       })}
