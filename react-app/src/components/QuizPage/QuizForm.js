@@ -38,7 +38,7 @@ const QuizForm = ({ amountOfQuestions }) => {
 
   return (
     <div className="quiz-form-container">
-      <p>{question.question_number} / {amountOfQuestions}</p>
+      <p>{question ? `${question.question_number} / ${amountOfQuestions}` : ""}</p>
       <div className="quiz-form__question">
         <h1>{question ? question.question_body : "Your Score Is"}</h1>
       </div>
