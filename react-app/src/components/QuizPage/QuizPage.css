@@ -32,9 +32,9 @@
 }
 
 /* Quiz Page Body */
-p {
+.category-question-container > * {
     display: inline;
-    margin: 0 50px;
+    margin: 0 10px;
 }
 
 /* Quiz Form */
