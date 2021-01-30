@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { getUserQuizzes } from '../../store/quiz'
+import { getCategories } from '../../store/category';
+import { useSelector, useDispatch } from "react-redux";
 import UserpageBody from "./UserpageBody"
 import SideUserBar from "./SideUserBar";
 import TopDisplay from "./TopDisplay";
@@ -10,6 +12,11 @@ import "./ProfilePage.css"
 
 
 const ProfilePage = () => {
+      const dispatch = useDispatch();
+      useEffect(() => {
+        dispatch(getUserQuizzes());
+        dispatch(getCategories());
+      }, [dispatch])
       // const [user, setUser] = useState({});
       const user = useSelector(state => state.session.user);
       // const history = useHistory()

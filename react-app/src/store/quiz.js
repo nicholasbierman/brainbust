@@ -17,6 +17,12 @@ export const getQuizzes = () => async (dispatch) => {
     dispatch(setQuizzes(data.quizzes))
 }
 
+export const getUserQuizzes = (id) => async (dispatch) => {
+    const res = await fetch(`/api/quizzes/user/${id}`)
+    const data = await res.json();
+    dispatch(setQuizzes(data.quizzes))
+}
+
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
     const response = await fetch('/api/quizzes/new', {
         method: "POST",
@@ -46,5 +52,5 @@ function reducer (state = initialState, action) {
             return state;
     }
 }
-    
+
 export default reducer
