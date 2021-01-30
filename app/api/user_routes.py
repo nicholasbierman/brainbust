@@ -1,7 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, login_user
-from app.models import User
+from app.models import db, User
 from .auth_routes import validation_errors_to_error_messages
+from ..forms import SignUpForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -20,7 +21,7 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/', methods=['POST'])
+@user_routes.route('/signup', methods=['POST'])
 def sign_up():
     """
     Creates a new user and logs them in
