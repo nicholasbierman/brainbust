@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -8,7 +8,7 @@ import SignupFormModal from '../SignupFormModal';
 import "./NavBar.css";
 import { getQuizzes } from '../../store/quiz'
 import { getCategories } from '../../store/category';
-
+import * as sessionActions from "../../store/session";
 
 import logo from "../../logo/brain.jpg"
 
@@ -17,6 +17,14 @@ const NavBar = ({ isLoaded }) => {
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
   
+  const [email, setEmail] = useState("demo@aa.io");
+  const [password, setPassword] = useState("password");
+  
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login({ email, password }))
+  }
 
   useEffect(() => {
     dispatch(getQuizzes());
@@ -31,6 +39,7 @@ const NavBar = ({ isLoaded }) => {
   } else {
     sessionLinks = (
       <>
+        <NavLink path to="/login" onClick={handleClick}>Demo Login</NavLink>
         <DemoLoginFormModal />
         <LoginFormModal />
         <SignupFormModal />
