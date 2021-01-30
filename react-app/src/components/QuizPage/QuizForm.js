@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const QuizForm = ({ amountOfQuestions }) => {
-    const questions = useSelector((state) => state.questions.ques);
+const QuizForm = ({ amountOfQuestions, questions }) => {
+    // const questions = useSelector((state) => state.questions.ques);
     console.log("first length", questions.length)
-    const [question, setQuestion] = useState(questions.shift())
+    const [index, setIndex] = useState(0)
+    const [question, setQuestion] = useState(questions[index]);
     console.log("second length", questions.length);
+    console.log("QUESTIONS", questions)
 
     let array;
     if(question ) {
@@ -30,7 +32,8 @@ const QuizForm = ({ amountOfQuestions }) => {
     const handleClick = (e) => {
         console.log(e.target)
         if(questions.length) {
-            setQuestion(questions.shift());
+            setIndex(index + 1)
+            setQuestion(questions[index]);
         } else {
             setQuestion(null)
         }

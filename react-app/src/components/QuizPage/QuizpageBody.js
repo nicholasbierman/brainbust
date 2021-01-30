@@ -6,7 +6,7 @@ import { getQuestions } from "../../store/question"
 
 const QuizpageBody = ({ id }) => {
     const dispatch = useDispatch();
-
+    const questions = useSelector((state) => state.questions.ques);
     const quizzes = useSelector(state => state.quizzes.quizList);
     const [ quiz ] = quizzes.filter(theQuiz => {
         return theQuiz.id === parseInt(id)
@@ -25,7 +25,7 @@ const QuizpageBody = ({ id }) => {
         <div clssName="category-question-container">
             <p>Category: {quiz.category}</p>
         </div>
-        <QuizForm amountOfQuestions={quiz.questions}/>
+        {questions && <QuizForm amountOfQuestions={quiz.questions} questions={questions}/>}
       </>
     );
 
