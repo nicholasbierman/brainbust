@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import DemoLoginFormModal from '../DemoLoginFormModal';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import "./NavBar.css";
@@ -30,6 +31,7 @@ const NavBar = ({ isLoaded }) => {
   } else {
     sessionLinks = (
       <>
+        <DemoLoginFormModal />
         <LoginFormModal />
         <SignupFormModal />
       </>
