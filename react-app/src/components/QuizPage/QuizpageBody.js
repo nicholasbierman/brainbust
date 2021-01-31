@@ -16,7 +16,6 @@ const QuizpageBody = ({ id }) => {
 
     useEffect(() => {
       dispatch(getQuestions(id))
-      dispatch()
     },[dispatch])
     
     if(!quiz) return null
