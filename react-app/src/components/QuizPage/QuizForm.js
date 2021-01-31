@@ -30,7 +30,7 @@ const QuizForm = ({ amountOfQuestions }) => {
         answers = {
           answer_1: question["answer_1"],
           answer_2: question["answer_2"],
-          
+          answer_3: question["answer_3"],
           correct_answer: question["correct_answer"],
         };
     }
@@ -49,21 +49,6 @@ const QuizForm = ({ amountOfQuestions }) => {
       randomize(randomAnswerObj, { [answer]: answers[answer] });
     }
 
-    // let array;
-    // if(question) {
-    //     array = [
-    //     "answer_1", 
-    //     "answer_2", 
-    //     "answer_3", 
-    //     "correct_answer"
-    // ].map((k) => question[k]);
-    // }
-
-    // const randomAnswer = () => {
-    //     const randomNumber = Math.floor(Math.random() * array.length)
-    //     return array.splice(randomNumber, 1)
-    // }
-
     const handleClick = (choice) => {
         if (randomAnswerObj[choice]["correct_answer"]) {
           setScore(score+1);
@@ -80,7 +65,7 @@ const QuizForm = ({ amountOfQuestions }) => {
     <div className="quiz-form-container">
       <p>{question ? `${question.question_number} / ${amountOfQuestions}` : ""}</p>
       <div className="quiz-form__question">
-        <h1>{question ? question.question_body : "Your Score Is"}</h1>
+        <h1>{question ? question.question_body : `Your Score Is: ${score}`}</h1>
       </div>
       {!question && <button onClick={() => history.push("/profile")}>Back To Some Quizzes</button>}
       {question && (
