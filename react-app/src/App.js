@@ -5,9 +5,10 @@ import NavBar from "./components/NavBar";
 import * as sessionActions from "./store/session";
 import MainPage from "./components/MainPage"
 import ProfilePage from "./components/ProfilePage"
-import NewQuizForm from './components/NewQuizForm'
-import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import NewQuizForm from "./components/NewQuizForm"
+import QuizPage from "./components/QuizPage"
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 
 function App() {
@@ -24,7 +25,11 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/profile" exact>
-            <ProfilePage />
+            {sessionUser && <ProfilePage />}
+            {!sessionUser && <Redirect to="/" />}
+          </Route>
+          <Route path="/quiz/:id" exact>
+            <QuizPage />
           </Route>
           <Route path="/" exact>
             {sessionUser && <Redirect to="/profile" />}
