@@ -39,12 +39,7 @@ const MainPage = () => {
       </div>
       );
     })
-      //const sessionUser = useSelector((state) => state.session.user);
 
-// useEffect(() => {
-//     console.log("hello from LoginForm")
-//       if (sessionUser) return <Redirect to="/profile" />;
-//   }, [sessionUser])
 return (
   <>
     <h1>BrainBust Main Page</h1>
