@@ -1,11 +1,7 @@
-// import React, {useEffect} from "react";
-import { useDispatch, useSelector }from "react-redux"
-// import { useHistory } from "react-router-dom"
+import React, {useEffect, useState} from "react";
+import { useSelector, useDispatch }from "react-redux"
 import "./MainPage.css";
-// import { Redirect } from "react-router-dom"
-import { deleteSingleQuiz } from "../../store/quiz"
-import { useEffect } from "react";
-
+import { getCategoryQuizzes, getQuizzes } from '../../store/quiz';
 
 const MainPage = () => {
   const directUserToQuiz = (quizId) => {
@@ -13,29 +9,47 @@ const MainPage = () => {
     //use redirect to go to quiz
     //dispatch to set single (current) quiz in global state??
   }
-  const quizzes = useSelector(state => state.quizzes.quizList)
   const dispatch = useDispatch()
-  
-      //const sessionUser = useSelector((state) => state.session.user);
+  const [selectedCategory, setSelectedCategory] = useState()
+  const categories = useSelector(state => state.categories.categories)
+  const quizzes = useSelector(state => state.quizzes.quizList)
+  useEffect( ()=>{
+    dispatch(getCategoryQuizzes(selectedCategory))
+  }, [selectedCategory])
+  const handleChange = (e) => {
+    const value = e.target.value
+    value === '' ? dispatch(getQuizzes()) : setSelectedCategory(value);
+    }
+  const quizCategories =
+    categories.map((category) => {
+      return <option value={ category.id } key={ category.id }>{ category.name }</option>
+    })
 
-// useEffect(() => {
-//     console.log("hello from LoginForm")
-//       if (sessionUser) return <Redirect to="/profile" />;
-//   }, [sessionUser])
-    return (
-        <>
-        <h1>BrainBust Main Page</h1>
-        {quizzes.map(quiz => {
-        return (
-          <div key={quiz.id} className="quiz-block">
-            <div>{quiz.name}</div>
-            <div>{quiz.category}</div>
-            <button className="take-quiz-button"
-              onClick={ () => directUserToQuiz(quiz.id) }>Take Quiz</button>
-          </div>
-        );})}
-        </>
-    )
+  const quizLoad =
+    quizzes.map( quiz => {
+      return (
+      <div key={quiz.id} className="quiz-block">
+        <div>{quiz.name}</div>
+        <div>{quiz.category}</div>
+        <button className="take-quiz-button"
+        onClick={()=> directUserToQuiz(quiz.id)}>Take Quiz</button>
+      </div>
+      );
+    })
+    
+return (
+  <>
+    <h1>BrainBust Main Page</h1>
+    <form>
+    <select
+      onChange={handleChange}
+        name="category" >
+            <option selected value=""></option>
+            {quizCategories}
+            </select>
+    </form>
+      {quizLoad}
+  </>
+)
 }
-
 export default MainPage;

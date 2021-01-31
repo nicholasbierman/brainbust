@@ -9,6 +9,7 @@ body {
     /* border: solid black 2px; */
     /* grid-template-columns: 4fr 10fr;
     grid-template-rows: auto; */
+    /* grid-template-rows: 1fr, 4fr; */
     grid-template-areas: "side head head head"
                          "side body body body";
 }
@@ -125,3 +126,7 @@ form.new-quiz-form {
   input.new-quiz:focus {
     outline: 3px solid blue;
   } 
+
+  .profile-button-container > * {
+      margin: 0 10px;
+  }
