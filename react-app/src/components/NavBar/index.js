@@ -13,9 +13,8 @@ import logo from "../../logo/brain.jpg"
 
 const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);
-  const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
-  
+ 
   const style = {
     background: 'linear-gradient(0deg, rgba(161,91,226,0.8793625356125356) 0%, rgba(40,27,255,1) 100%)',
     border: 0,
@@ -33,8 +32,8 @@ const NavBar = ({ isLoaded }) => {
   }
 
   useEffect(() => {
-    dispatch(getQuizzes());
     dispatch(getCategories());
+    dispatch(getQuizzes())
   }, [dispatch])
 
   let sessionLinks;
