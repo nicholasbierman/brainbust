@@ -50,6 +50,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 50px;
     width: 1000px;
     height: 400px;
 }  
@@ -58,4 +59,13 @@
    margin: 150px;
 }
 
-.quiz-button-container {}
+.quiz-button-container {
+    display: flex;
+    flex-direction: wrap;
+    margin: 50px;
+}
+
+.quiz-button_quizform {
+    height: 150px;
+    width: 200px;
+}
