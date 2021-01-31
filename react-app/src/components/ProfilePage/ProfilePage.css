@@ -16,7 +16,7 @@
 
 .page-container__top {
     grid-area: head;
-    height: 165px;
+    height: 100px;
 }
 
 .page-container__side {
@@ -65,4 +65,8 @@
     padding-left: 10px;
     padding-right: 15px;
     display: flex;
+}
+
+h1.sidebar {
+    color: white;
 }
