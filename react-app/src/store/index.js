@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import quizzes from './quiz'
 import categories from './category'
+import questions from './question'
 
 const rootReducer = combineReducers({
   session,
   quizzes,
-  categories
+  categories,
+  questions
 });
 
 let enhancer;
