@@ -125,3 +125,7 @@ form.new-quiz-form {
   input.new-quiz:focus {
     outline: 3px solid blue;
   } 
+
+  .profile-button-container > * {
+      margin: 0 10px;
+  }
