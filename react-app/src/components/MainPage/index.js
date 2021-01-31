@@ -1,9 +1,8 @@
-import React, {useEffect, useEffectOnce, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch }from "react-redux"
-// import { useHistory } from "react-router-dom"
 import "./MainPage.css";
 import { getCategoryQuizzes, getQuizzes } from '../../store/quiz';
-import { Redirect } from "react-router-dom"
+
 
 
 const MainPage = () => {
