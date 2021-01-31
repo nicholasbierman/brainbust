@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { useSelector }from "react-redux"
+import { useSelector, useDispatch }from "react-redux"
 // import { useHistory } from "react-router-dom"
 import "./MainPage.css";
+import { getCategoryQuizzes } from '../../store/quiz';
 import { Redirect } from "react-router-dom"
 
 
@@ -11,48 +12,51 @@ const MainPage = () => {
     //use redirect to go to quiz
     //dispatch to set single (current) quiz in global state??
   }
+  const dispatch = useDispatch()
   const [selectedCategory, setSelectedCategory] = useState()
   const categories = useSelector(state => state.categories.categories)
   const quizzes = useSelector(state => state.quizzes.quizList)
+  useEffect( ()=>{
+    dispatch(getCategoryQuizzes(selectedCategory))
+  }, [selectedCategory])
+  const handleChange = (e) => {
+    setSelectedCategory(e.target.value);
+  }
+  const quizCategories =
+    categories.map((category) => {
+      return <option value={ category.id } key={ category.id }>{ category.name }</option>
+    })
+
+  const quizLoad =
+    quizzes.map( quiz => {
+      return (
+      <div key={quiz.id} className="quiz-block">
+        <div>{quiz.name}</div>
+        <div>{quiz.category}</div>
+        <button className="take-quiz-button"
+        onClick={()=> directUserToQuiz(quiz.id)}>Take Quiz</button>
+      </div>
+      );
+    })
       //const sessionUser = useSelector((state) => state.session.user);
 
 // useEffect(() => {
 //     console.log("hello from LoginForm")
 //       if (sessionUser) return <Redirect to="/profile" />;
 //   }, [sessionUser])
-    return (
-        <>
-        <h1>BrainBust Main Page</h1>
-        <form>
-        <select onChange={ (e) => setSelectedCategory(e.target.value) } name="category">
-                {
-                    categories.map((category) => {
-                        return <option value={ category.id }>{ category.name }</option>
-                    }) })
-                </select>
-
-        </form>
-            {quizzes.map( quiz => {
-            if(quiz.category_id == selectedCategory){
-              return (
-              <div key={quiz.id} className="quiz-block">
-                <div>{quiz.name}</div>
-                <div>{quiz.category}</div>
-                <button className="take-quiz-button"
-                onClick={()=> directUserToQuiz(quiz.id)}>Take Quiz</button>
-              </div>
-            );}
-            else if(selectedCategory == null){
-              return <div key={quiz.id} className="quiz-block">
-              <div>{quiz.name}</div>
-              <div>{quiz.category}</div>
-              <button className="take-quiz-button"
-              onClick={()=> directUserToQuiz(quiz.id)}>Take Quiz</button>
-            </div>
-            }})
-
-            }
-        </>
-    )
+return (
+  <>
+    <h1>BrainBust Main Page</h1>
+    <form>
+    <select
+      onChange={handleChange}
+        name="category" >
+            <option selected value=""></option>
+            {quizCategories}
+            </select>
+    </form>
+      {quizLoad}
+  </>
+)
 }
 export default MainPage;

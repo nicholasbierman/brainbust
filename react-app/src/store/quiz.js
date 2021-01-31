@@ -1,5 +1,6 @@
 const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
+const CLEAR_QUIZZES = 'quiz/clearQuizzes'
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -10,6 +11,14 @@ const setQuizzes = (quizzes) => ({
     type: SET_QUIZZES,
     payload: quizzes
 })
+
+const clearQuizzes = () => ({
+    type: CLEAR_QUIZZES
+})
+
+export const clearQuizzesThunk = () => async (dispatch) => {
+    dispatch(clearQuizzes())
+}
 
 export const getQuizzes = () => async (dispatch) => {
     const res = await fetch('/api/quizzes')
@@ -23,8 +32,14 @@ export const getUserQuizzes = (id) => async (dispatch) => {
     dispatch(setQuizzes(data.quizzes))
 }
 
+export const getCategoryQuizzes = (id) => async (dispatch) => {
+    const res = await fetch(`/api/quizzes/category/${id}`)
+    const data = await res.json();
+    dispatch(setQuizzes(data.quizzes))
+}
+
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
-    const response = await fetch('/api/quizzes/new', {
+const response = await fetch('/api/quizzes/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

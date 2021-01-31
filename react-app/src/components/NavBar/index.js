@@ -15,10 +15,9 @@ const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
-  
+
 
   useEffect(() => {
-    dispatch(getQuizzes());
     dispatch(getCategories());
   }, [dispatch])
 
