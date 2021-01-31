@@ -62,7 +62,12 @@
 .quiz-button-container {
     display: flex;
     flex-direction: wrap;
-    margin: 50px;
+    margin: 20px;
+}
+
+.quiz-button-container > * {
+    width: 500px;
+    height: 100px;
 }
 
 .quiz-button_quizform {
