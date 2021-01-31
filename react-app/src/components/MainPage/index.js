@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useEffectOnce, useState} from "react";
 import { useSelector, useDispatch }from "react-redux"
 // import { useHistory } from "react-router-dom"
 import "./MainPage.css";
-import { getCategoryQuizzes } from '../../store/quiz';
+import { getCategoryQuizzes, getQuizzes } from '../../store/quiz';
 import { Redirect } from "react-router-dom"
 
 
@@ -20,8 +20,9 @@ const MainPage = () => {
     dispatch(getCategoryQuizzes(selectedCategory))
   }, [selectedCategory])
   const handleChange = (e) => {
-    setSelectedCategory(e.target.value);
-  }
+    const value = e.target.value
+    value === '' ? dispatch(getQuizzes()) : setSelectedCategory(value);
+    }
   const quizCategories =
     categories.map((category) => {
       return <option value={ category.id } key={ category.id }>{ category.name }</option>
