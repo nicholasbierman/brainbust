@@ -4,6 +4,7 @@ import QuizForm from "./QuizForm"
 
 import { getQuestions } from "../../store/question"
 
+
 const QuizpageBody = ({ id }) => {
     const dispatch = useDispatch();
     const questions = useSelector((state) => state.questions.ques);
@@ -14,7 +15,8 @@ const QuizpageBody = ({ id }) => {
     
 
     useEffect(() => {
-        dispatch(getQuestions(id))
+      dispatch(getQuestions(id))
+      dispatch()
     },[dispatch])
     
     if(!quiz) return null

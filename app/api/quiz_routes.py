@@ -51,7 +51,7 @@ def post_delete_quiz(id):
     quiz = Quiz.query.get(id)
     db.session.delete(quiz)
     db.session.commit()
-    return redirect("/api/quizzes")
+    return {"message": "Very Nice Great Success"}
 
 # updating a quiz
 @quiz_routes.route("/<int:id>/update", methods=["PUT"])

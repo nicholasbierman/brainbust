@@ -3,8 +3,6 @@ import { useSelector, useDispatch }from "react-redux"
 import "./MainPage.css";
 import { getCategoryQuizzes, getQuizzes } from '../../store/quiz';
 
-
-
 const MainPage = () => {
   const directUserToQuiz = (quizId) => {
     console.log("hello", quizId)
@@ -38,7 +36,7 @@ const MainPage = () => {
       </div>
       );
     })
-
+    
 return (
   <>
     <h1>BrainBust Main Page</h1>

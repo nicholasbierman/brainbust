@@ -2,15 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import QuizzesAll from "./QuizzesAll"
 import QuizzesUser from "./QuizzesUser"
-//Redirect user to quiz
-// import { Redirect } from "react-router-dom"
-//css
 import "./ProfilePage.css"
 
 const UserpageBody = () => {
   const quizzes = useSelector(state => state.quizzes.quizList);
-  // const history = useHistory();
-  // const dispatch = useDispatch()
   const [displayQuizzes, setDisplayQuizzes] = useState("All")
 
   let display;
@@ -21,7 +16,7 @@ const UserpageBody = () => {
     console.log(displayQuizzes)
     display = <QuizzesUser />;
   }
-
+  
   return (
     <div className="body-container">
       <nav className="button-container">

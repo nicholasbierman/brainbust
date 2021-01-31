@@ -23,6 +23,7 @@ const ProfilePage = () => {
         <>
           <div className="page-container">
             <div className="page-container__top">
+              
               <TopDisplay />
             </div>
             <div className="page-container__side">
