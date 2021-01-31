@@ -27,25 +27,24 @@ const SideUserBar = () => {
     return (
         <div>
             <h1 className="sidebar">Welcome, {user.username}!</h1>
-            <>
+            <div className="new-quiz-form">
                 <form onSubmit={handleSubmit}>
                     <h1>Create A New Quiz</h1>
                     <h2>A Quiz is a set of Questions</h2>
-                    <input name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={(e) => setName(e.target.value)} value={name}></input>
-                    <br></br>
-                    <label for="category">Category</label>
+                    <label className="new-quiz-form">Name:</label>
+                    <input className="new-quiz" name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
+                    <label className="new-quiz-form" for="category">Category:</label>
                     <select onChange={(e) => setSelectedCategory(e.target.value)} name="category">
                         {categories.map((category) => {
                             return <option value={category.id}>{category.name}</option>
                         })})
                 </select>
-                    <br></br>
-                    <label for="is_private">Private?</label>
+                    <label className="new-quiz-form" for="is_private">Private?</label>
                     <input value={isPrivate} onChange={(e) => setIsPrivate(true)} name="is_private" type="checkbox"></input>
-                    <br></br>
+                    <br />
                     <button type="submit">Continue</button>
                 </form>
-            </>
+            </div>
         </div>
     )
 }
