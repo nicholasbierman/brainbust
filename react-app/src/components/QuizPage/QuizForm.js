@@ -30,7 +30,7 @@ const QuizForm = ({ amountOfQuestions }) => {
         answers = {
           answer_1: question["answer_1"],
           answer_2: question["answer_2"],
-          answer_3: question["answer_3"],
+          
           correct_answer: question["correct_answer"],
         };
     }
