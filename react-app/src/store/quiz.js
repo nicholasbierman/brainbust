@@ -1,5 +1,6 @@
 const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
+const DELETE_QUIZ = 'quiz/deleteQuiz'
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -9,6 +10,11 @@ const addQuiz = (quiz) => ({
 const setQuizzes = (quizzes) => ({
     type: SET_QUIZZES,
     payload: quizzes
+})
+
+const deleteQuiz = (id) => ({
+    type: DELETE_QUIZ,
+    payload: id
 })
 
 export const getQuizzes = () => async (dispatch) => {
@@ -37,6 +43,17 @@ export const addSingleQuiz = (newQuiz) => async (dispatch) => {
     }
 }
 
+export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
+    const response = await fetch(`/api/quizzes/${quizToDelete.id}/delete`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        const data = await response.json()
+        dispatch(deleteQuiz(quizToDelete.id))
+}
+
 const initialState = { quizList: [] };
 
 function reducer (state = initialState, action) {
@@ -47,6 +64,12 @@ function reducer (state = initialState, action) {
             return newState;
         case ADD_QUIZ:
             newState = Object.assign({}, state, { quizList: action.payload });
+            return newState;
+        case DELETE_QUIZ:
+            newState = Object.assign({}, state,);
+            newState.quizList = newState.quizList.filter(quiz => {
+                return quiz.id !== action.payload
+            })
             return newState;
         default:
             return state;

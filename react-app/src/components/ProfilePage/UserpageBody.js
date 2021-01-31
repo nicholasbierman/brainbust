@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { getQuestions } from "../../store/question";
+import { deleteSingleQuiz } from "../../store/quiz"
+
 //Redirect user to quiz
 // import { Redirect } from "react-router-dom"
 //css
@@ -19,6 +21,7 @@ const UserpageBody = () => {
     dispatch(getQuestions(quizId))
     history.push(`/quiz/${quizId}`)
   }
+  
 
   return (
     <div className="body-container">
@@ -34,7 +37,8 @@ const UserpageBody = () => {
             <div>{quiz.name}</div>
             <div>{quiz.category}</div>
             <button className="take-quiz-button"
-            onClick={() => directUserToQuiz(quiz.id)}>Take Quiz</button>
+              onClick={ () => directUserToQuiz(quiz.id) }>Take Quiz</button>
+            <button className="take-quiz-button" onClick={ () => dispatch(deleteSingleQuiz(quizzes[0]))}>Delete Quiz</button>
           </div>
         );
       })}
