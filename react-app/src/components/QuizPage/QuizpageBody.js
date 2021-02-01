@@ -16,7 +16,7 @@ const QuizpageBody = ({ id }) => {
 
     useEffect(() => {
       dispatch(getQuestions(id))
-    },[dispatch])
+    },[dispatch, id])
     
     if(!quiz) return null
 
@@ -24,7 +24,7 @@ const QuizpageBody = ({ id }) => {
       <>
         <h1>{quiz.name}</h1>
         <div className="category-question-container">
-            <p>Category: {quiz.category}</p>
+            <p>Category: {quiz.category_name}</p>
         </div>
         {questions && <QuizForm amountOfQuestions={quiz.questions} id={id} />}
       </>

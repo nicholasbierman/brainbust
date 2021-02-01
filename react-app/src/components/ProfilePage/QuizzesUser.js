@@ -17,7 +17,7 @@ const QuizzesUser = () => {
 
     useEffect(()=> {
         dispatch(getUserQuizzes(user.id))
-    }, [user.id])
+    }, [user.id, dispatch])
 
     const directUserToQuiz = (quizId) => {
       dispatch(getQuestions(quizId));
@@ -46,7 +46,9 @@ const QuizzesUser = () => {
                   </button>
                   <button
                     className="take-quiz-button"
-                    onClick={() => directUserToQuiz(quiz.id)}
+                    onClick={() => {
+                      directUserToQuiz(quiz.id)
+                    }}
                   >
                     Take Quiz
                   </button>

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { addSingleQuiz } from '../../store/quiz';
 import { getQuestions } from '../../store/question';
 import QuestionBoxModal from '../QuestionModal/index'
+import Search from "./Search"
+
 
 const SideUserBar = () => {
     const user = useSelector(state => state.session.user);

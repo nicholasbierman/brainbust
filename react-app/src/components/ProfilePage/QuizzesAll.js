@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { getQuizzes } from "../../store/quiz"
+import { getQuizzes, clearScore } from "../../store/quiz"
 import { getQuestions } from "../../store/question";
 import { useHistory } from "react-router-dom";
 
@@ -16,9 +16,10 @@ const QuizzesAll = () => {
         dispatch(getQuizzes())
     },[dispatch])
 
-    const directUserToQuiz = (quizId) => {
-      dispatch(getQuestions(quizId));
-      history.push(`/quiz/${quizId}`);
+  const directUserToQuiz = (quizId) => {
+    dispatch(clearScore());
+    dispatch(getQuestions(quizId));
+    history.push(`/quiz/${quizId}`);
     };
 
     return (

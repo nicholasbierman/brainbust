@@ -56,7 +56,7 @@
 }  
 
 .quiz-form__question > * {
-   margin: 150px;
+    margin: 150px;
 }
 
 .quiz-button-container {
@@ -66,11 +66,41 @@
 }
 
 .quiz-button-container > * {
-    width: 500px;
+    width: 200px;
     height: 100px;
 }
 
 .quiz-button_quizform {
     height: 150px;
     width: 200px;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    padding: 10px, 10px
+}
+
+.score-meter-outter {
+    border: 1px solid black;
+    width: 50px;
+    height: 200px;
+    position: relative;
+}
+
+.score-meter {
+    background-color: yellow;
+    width: 48px;
+    position: absolute;
+    bottom: 0;
+}
+
+.score-meter.full {
+    background-color: green;
+}
+
+.score-meter.low {
+    background-color: red;
 }

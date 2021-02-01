@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import { Redirect } from "react-router-dom";
 import { getUserQuizzes } from '../../store/quiz'
 import { getCategories } from '../../store/category';
 import { useSelector, useDispatch } from "react-redux";

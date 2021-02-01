@@ -131,3 +131,13 @@ form.new-quiz-form {
   .profile-button-container > * {
       margin: 0 10px;
   }
+
+  /* Search Bar */
+  .search-container {
+      width: 100%;
+  }
+
+  .search-container__form > input {
+      width: calc(100% - 80px);
+      margin: 0 5px;
+  }
