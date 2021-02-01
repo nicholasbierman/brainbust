@@ -8,6 +8,12 @@ body {
 
 #title {
   color: white;
+  text-shadow:
+    -1px -1px 0 rgba(255,255,255,.5),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); 
 }
 
 .nav-bar__container {
