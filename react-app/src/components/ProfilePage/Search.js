@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./ProfilePage.css"
+import { searchQuizByTitle } from "../../store/quiz"
 
 const Search = () => {
     const [searchItem, setSearchItem] = useState("")
-    
+    const dispatch = useDispatch();
     const categories = useSelector(state => {
         return state.categories.categories
     })
@@ -12,6 +13,7 @@ const Search = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(searchItem)
+        dispatch(searchQuizByTitle(searchItem))
         setSearchItem("")
     }
 

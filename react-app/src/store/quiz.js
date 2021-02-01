@@ -30,7 +30,7 @@ const clearQuizzes = () => ({
 export const searchQuizByTitle = (searchTerm) => async (dispatch) => {
     const response = await fetch(`/api/search/${searchTerm}`)
     const data = await response.json()
-    dispatch(setSearchQuizzes(data))
+    dispatch(setQuizzes(data.quizzes))
 }
 
 export const clearQuizzesThunk = () => async (dispatch) => {
@@ -98,8 +98,6 @@ function reducer (state = initialState, action) {
                 return quiz.id !== action.payload
             })
             return newState;
-        case SEARCH_QUIZZES_BY_TITLE:
-            newState = { ...state } 
         default:
             return state;
     }
