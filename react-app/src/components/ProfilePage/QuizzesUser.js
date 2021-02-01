@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserQuizzes } from "../../store/quiz";
+import { getUserQuizzes, deleteSingleQuiz } from "../../store/quiz";
 import { getQuestions } from "../../store/question";
 import { useHistory } from "react-router-dom";
 
@@ -40,7 +40,7 @@ const QuizzesUser = () => {
                   </button>
                   <button
                     className="take-quiz-button"
-                    onClick={() => {}}
+                    onClick={() => {dispatch(deleteSingleQuiz(quiz))}}
                   >
                     Delete
                   </button>
