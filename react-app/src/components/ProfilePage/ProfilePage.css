@@ -80,7 +80,7 @@ body {
 }
 
 .quiz-block div:last-child {
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 h1.sidebar {
@@ -136,6 +136,10 @@ form.new-quiz-form {
 
   input.new-quiz:focus {
     outline: 3px solid blue;
+  }
+
+  .profile-button-container {
+    display: inline;
   }
 
   .profile-button-container > * {
