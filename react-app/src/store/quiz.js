@@ -21,6 +21,12 @@ const clearQuizzes = () => ({
     type: CLEAR_QUIZZES
 })
 
+export const searchQuizByTitle = (searchTerm) => async (dispatch) => {
+    const response = await fetch(`/api/search/${searchTerm}`)
+    const data = await response.json()
+    dispatch(setQuizzes(data.quizzes))
+}
+
 export const clearQuizzesThunk = () => async (dispatch) => {
     dispatch(clearQuizzes())
 }
@@ -58,14 +64,13 @@ const response = await fetch('/api/quizzes/new', {
 }
 
 export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
-    const response = await fetch(`/api/quizzes/${quizToDelete.id}/delete`, {
+    await fetch(`/api/quizzes/${quizToDelete.id}/delete`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     })
-        const data = await response.json()
-        dispatch(deleteQuiz(quizToDelete.id))
+    dispatch(deleteQuiz(quizToDelete.id))
 }
 
 const initialState = { quizList: [] };
@@ -81,7 +86,7 @@ function reducer (state = initialState, action) {
             newState.quizList = [...newState.quizList, action.payload]
             return newState;
         case DELETE_QUIZ:
-            newState = Object.assign({}, state,);
+            newState = Object.assign({}, state);
             newState.quizList = newState.quizList.filter(quiz => {
                 return quiz.id !== action.payload
             })

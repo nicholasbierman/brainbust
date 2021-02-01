@@ -52,7 +52,7 @@ const NavBar = ({ isLoaded }) => {
   }
 
   return (
-    <div nav-bar__container>
+    <div className="nav-bar__container">
       <ul className="nav-bar">
         <li className="logo-container">
           <NavLink exact to={ sessionUser ? '/profile': '/' } className="logo-image">
