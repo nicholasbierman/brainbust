@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom"
 import { getQuestions } from "../../store/question";
+import { updateScore } from "../../store/quiz";
 import "./QuizPage.css"
 
 const QuizForm = ({ amountOfQuestions }) => {
@@ -9,9 +10,10 @@ const QuizForm = ({ amountOfQuestions }) => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const questions = useSelector((state) => state.questions.ques);
+    const currentQuiz = useSelector(state => state.quizzes.currentQuiz)
     const [index, setIndex] = useState(0)
     const [question, setQuestion] = useState({});
-    const [score, setScore] = useState(0)
+    // const [score, setScore] = useState(0)
 
     useEffect(() => {
       console.log(id)
@@ -52,9 +54,9 @@ const QuizForm = ({ amountOfQuestions }) => {
 
     const handleClick = (choice) => {
         if (randomAnswerObj[choice]["correct_answer"]) {
-          setScore(score+1);
+          dispatch(updateScore(currentQuiz.score + 1, questions.length))
+          // console.log("STRIIIIING", score)
         }
-        console.log(score)
         if(questions.length) {
             setIndex(index + 1)
         } else {
@@ -66,21 +68,37 @@ const QuizForm = ({ amountOfQuestions }) => {
     <div className="quiz-form-container">
       <p>{question ? `${question.question_number} / ${amountOfQuestions}` : ""}</p>
       <div className="quiz-form__question">
-        <h1>{question ? question.question_body : `Your Score Is: ${score}`}</h1>
+        <h1>{question ? question.question_body : `Your Score Is: ${currentQuiz.score}`}</h1>
       </div>
       {!question && <button onClick={() => history.push("/profile")}>Back To Some Quizzes</button>}
       {question && (
       <div className="quiz-button-container">
-        <button className="quiz-button__quizform" onClick={() => handleClick(1)}>
+          <button className="quiz-button__quizform" onClick={() => {
+            handleClick(1)
+            // console.log(score)
+            
+          }}>
           {Object.values(randomAnswerObj[1])[0]}
         </button>
-        <button className="quiz-button__quizform" onClick={() => handleClick(2)}>
+        <button className="quiz-button__quizform" onClick={() => {
+            handleClick(2)
+            // console.log(score)
+            
+          }}>
           {Object.values(randomAnswerObj[2])[0]}
         </button>
-        <button className="quiz-button__quizform" onClick={() => handleClick(3)}>
+        <button className="quiz-button__quizform" onClick={() => {
+            handleClick(3)
+            // console.log(score)
+            
+          }}>
           {Object.values(randomAnswerObj[3])[0]}
         </button>
-        <button className="quiz-button__quizform" onClick={() => handleClick(4)}>
+        <button className="quiz-button__quizform" onClick={() => {
+            handleClick(4)
+            // console.log(score)
+            
+          }}>
           {Object.values(randomAnswerObj[4])[0]}
         </button>
       </div>

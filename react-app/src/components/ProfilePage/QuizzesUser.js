@@ -46,7 +46,9 @@ const QuizzesUser = () => {
                   </button>
                   <button
                     className="take-quiz-button"
-                    onClick={() => directUserToQuiz(quiz.id)}
+                    onClick={() => {
+                      directUserToQuiz(quiz.id)
+                    }}
                   >
                     Take Quiz
                   </button>
