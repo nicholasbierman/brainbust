@@ -2,6 +2,7 @@ const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
 const DELETE_QUIZ = 'quiz/deleteQuiz'
 const CLEAR_QUIZZES = 'quiz/clearQuizzes'
+const ADD_QUESTIONS = 'quiz/addQuestions'
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -19,6 +20,11 @@ const deleteQuiz = (id) => ({
 })
 const clearQuizzes = () => ({
     type: CLEAR_QUIZZES
+})
+
+export const addQuestions = (question) => ({
+    type: ADD_QUESTIONS,
+    payload: question
 })
 
 export const clearQuizzesThunk = () => async (dispatch) => {
@@ -68,7 +74,7 @@ export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
         dispatch(deleteQuiz(quizToDelete.id))
 }
 
-const initialState = { quizList: [] };
+const initialState = { quizList: [], newQuestions: [] };
 
 function reducer (state = initialState, action) {
     let newState;
@@ -79,6 +85,10 @@ function reducer (state = initialState, action) {
         case ADD_QUIZ:
             newState = Object.assign({}, state );
             newState.quizList = [...newState.quizList, action.payload]
+            return newState;
+        case ADD_QUESTIONS:
+            newState = Object.assign({}, state );
+            newState.newQuestions = [...newState.newQuestions, action.payload]
             return newState;
         case DELETE_QUIZ:
             newState = Object.assign({}, state,);

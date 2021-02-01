@@ -13,6 +13,7 @@ const SideUserBar = () => {
     const [selectedCategory, setSelectedCategory] = useState();
     const dispatch = useDispatch();
     const categories = useSelector(state => state.categories.categories);
+    const addedQuestions = useSelector(state => state.quizzes.newQuestions)
 
     // useEffect(()=> {
     //     dispatch(getQuestions(quiz.id))
@@ -47,6 +48,10 @@ const SideUserBar = () => {
                     </select>
                         <label className="new-quiz-form" for="is_private">Private?</label>
                         <input value={isPrivate} onChange={(e) => setIsPrivate(true)} name="is_private" type="checkbox"></input>
+                        <br />
+                        {addedQuestions.map((question) => {
+                            return <div>{question.question_body}</div>
+                        })}
                         <br />
                         <QuestionBoxModal/>
                         <br />

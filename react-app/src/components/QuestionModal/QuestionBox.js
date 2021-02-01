@@ -1,12 +1,10 @@
-import React, { useState, useEffect  } from "react";
-import * as questionActions from "../../store/question";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import * as quizActions from "../../store/quiz";
+import { useDispatch } from "react-redux";
 import "./QuestionBox.css";
 
-function QuestionBox(quiz) {
-    const quizId = quiz
+function QuestionBox({onClose}) {
     const dispatch = useDispatch();
-    const sessionQuestion = useSelector((state) => state.session.question)
     const [question_body, setQuestionBody] = useState("");
     const [answer_1, setAnswer1] = useState("");
     const [answer_2, setAnswer2] = useState("");
@@ -15,11 +13,11 @@ function QuestionBox(quiz) {
     const [errors, setErrors] = useState([]);
 
 
-
     const handleSubmit = (e) => {
       e.preventDefault();
       setErrors([]);
-      dispatch(questionActions.addQuestion({question_body, answer_1, answer_2, answer_3, correct_answer}))
+      dispatch(quizActions.addQuestions({question_body, answer_1, answer_2, answer_3, correct_answer}));
+      onClose();
     }
 
     return (

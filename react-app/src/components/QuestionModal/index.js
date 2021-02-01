@@ -18,7 +18,7 @@ function QuestionBoxModal() {
       <button style={style} onClick={() => setShowModal(true)}>New Question</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <QuestionBox />
+          <QuestionBox onClose={() => setShowModal(false)}/>
         </Modal>
       )}
     </>
