@@ -6,6 +6,12 @@ import "./QuestionBox.css";
 function QuestionBox(quiz) {
     const quizId = quiz
     const dispatch = useDispatch();
+    const sessionQuestion = useSelector((state) => state.session.question)
+    const [question_body, setQuestionBody] = useState("");
+    const [answer_1, setAnswer1] = useState("");
+    const [answer_2, setAnswer2] = useState("");
+    const [answer_3, setAnswer3] = useState("");
+    const [correct_answer, setCorrectAnswer] = useState("");
     const [errors, setErrors] = useState([]);
 
 
@@ -18,7 +24,7 @@ function QuestionBox(quiz) {
 
     return (
       <div className="question-container">
-        <h1>Log In</h1>
+        <h1>Add Question Here</h1>
         <form className="question-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => (
@@ -26,38 +32,38 @@ function QuestionBox(quiz) {
             ))}
           </ul>
             <input
-              placeholder="QuestionHere"
+              placeholder="Type your Question here!"
               type="text"
               value={question_body}
-              onChange={(e) => setBody(e.target.value)}
+              onChange={(e) => setQuestionBody(e.target.value)}
               required
             />
             <input
-              placeholder="Answer1"
+              placeholder="First incorrect answer"
               type="text"
               value={answer_1}
-              onChange={(e) => setAnswer_1(e.target.value)}
+              onChange={(e) => setAnswer1(e.target.value)}
               required
             />
             <input
-              placeholder="Answer2"
+              placeholder="Second incorrect answer"
               type="text"
               value={answer_2}
-              onChange={(e) => setAnswer_2(e.target.value)}
+              onChange={(e) => setAnswer2(e.target.value)}
               required
             />
             <input
-              placeholder="Answer3"
+              placeholder="Third incorrect answer"
               type="text"
               value={answer_3}
-              onChange={(e) => setAnswer_3(e.target.value)}
+              onChange={(e) => setAnswer3(e.target.value)}
               required
             />
             <input
-              placeholder="CorrectAnswer"
+              placeholder="Put the correct answer here!"
               type="text"
               value={correct_answer}
-              onChange={(e) => setAnswer_3(e.target.value)}
+              onChange={(e) => setCorrectAnswer(e.target.value)}
               required
             />
           <button type="submit">Add Question</button>

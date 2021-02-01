@@ -1,17 +1,22 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addSingleQuiz } from '../../store/quiz';
-import { ModalProvider } from '../context/Modal';
-
+import { getQuestions } from '../../store/question';
+import QuestionBoxModal from '../QuestionModal/index'
 
 const SideUserBar = () => {
     const user = useSelector(state => state.session.user);
+    const quiz = useSelector(state => state.session.quiz);
     const [name, setName] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState();
     const dispatch = useDispatch();
     const categories = useSelector(state => state.categories.categories);
+
+    // useEffect(()=> {
+    //     dispatch(getQuestions(quiz.id))
+    // }, [quiz.id])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,7 +31,6 @@ const SideUserBar = () => {
 
 
     return (
-        <ModalProvider>
             <div>
                 <h1 className="sidebar">Welcome, {user.username}!</h1>
                 <div className="new-quiz-form">
@@ -44,11 +48,12 @@ const SideUserBar = () => {
                         <label className="new-quiz-form" for="is_private">Private?</label>
                         <input value={isPrivate} onChange={(e) => setIsPrivate(true)} name="is_private" type="checkbox"></input>
                         <br />
+                        <QuestionBoxModal/>
+                        <br />
                         <button type="submit">Continue</button>
                     </form>
                 </div>
             </div>
-        </ModalProvider>
     )
 }
 

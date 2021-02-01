@@ -11,13 +11,13 @@ export const getQuestions = (id) => async (dispatch) => {
   dispatch(setQuestions(data.questions));
 };
 
-export const addQuestion = (id) => async (dispatch) => {
+export const addQuestion = () => async (dispatch) => {
   const res = await fetch('/api/question/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(newQuestion)
+        body: JSON.stringify()
   });
 }
 
