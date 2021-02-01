@@ -2,12 +2,6 @@ const SET_QUIZZES = 'quiz/setQuizzes'
 const ADD_QUIZ = 'quiz/addQuiz'
 const DELETE_QUIZ = 'quiz/deleteQuiz'
 const CLEAR_QUIZZES = 'quiz/clearQuizzes'
-const SEARCH_QUIZZES_BY_TITLE = 'quiz/searchQuizzesByTitle'
-
-const setSearchQuizzes = (quizzes) => ({
-    type: SEARCH_QUIZZES_BY_TITLE,
-    payload: quizzes
-})
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -70,14 +64,13 @@ const response = await fetch('/api/quizzes/new', {
 }
 
 export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
-    const response = await fetch(`/api/quizzes/${quizToDelete.id}/delete`, {
+    await fetch(`/api/quizzes/${quizToDelete.id}/delete`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     })
-        const data = await response.json()
-        dispatch(deleteQuiz(quizToDelete.id))
+    dispatch(deleteQuiz(quizToDelete.id))
 }
 
 const initialState = { quizList: [] };

@@ -20,7 +20,7 @@ const Search = () => {
     return (
         <div className="search-container">
             <form className="search-container__form" onSubmit={handleSubmit}>
-                <label id="label" for="search"></label>
+                <label id="label" htmlFor="search"></label>
                 <input 
                 id="input" 
                 name="search" 
@@ -29,9 +29,9 @@ const Search = () => {
                 value={searchItem}
                 onChange={(e)=> {setSearchItem(e.target.value)}}></input>
                 <datalist id="categories">
-                    {categories && categories.map(category => {
+                    {categories && categories.map((category, i) => {
                         return (
-                            <option value={category.name} />
+                            <option key={ i } value={category.name} />
                         )
                     })}
                 </datalist>

@@ -17,7 +17,7 @@ const QuizzesUser = () => {
 
     useEffect(()=> {
         dispatch(getUserQuizzes(user.id))
-    }, [user.id])
+    }, [user.id, dispatch])
 
     const directUserToQuiz = (quizId) => {
       dispatch(getQuestions(quizId));

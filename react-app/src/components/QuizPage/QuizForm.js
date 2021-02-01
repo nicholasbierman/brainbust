@@ -16,7 +16,7 @@ const QuizForm = ({ amountOfQuestions }) => {
     useEffect(() => {
       console.log(id)
       dispatch(getQuestions(id));
-    }, []);
+    }, [id, dispatch]);
 
     useEffect(() => {
       setQuestion(questions[0]);
@@ -24,7 +24,7 @@ const QuizForm = ({ amountOfQuestions }) => {
 
     useEffect(()=> {
         setQuestion(questions[index])
-    },[index])
+    },[index, dispatch, questions])
 
     let answers = {};
     if (question) {
