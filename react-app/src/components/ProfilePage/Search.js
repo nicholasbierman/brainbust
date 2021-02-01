@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useSelector } from "react-dom";
+import { useSelector } from "react-redux";
 import "./ProfilePage.css"
 
 const Search = () => {
@@ -9,8 +9,10 @@ const Search = () => {
         return state.categories.categories
     })
     
-    const handleSubmit = () => {
-        return null
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(searchItem)
+        setSearchItem("")
     }
 
     return (
@@ -20,10 +22,11 @@ const Search = () => {
                 <input 
                 id="input" 
                 name="search" 
-                placeholder="Search a Quiz by name..."
+                list="categories"
+                placeholder="Search Quizzes by name or category..."
                 value={searchItem}
                 onChange={(e)=> {setSearchItem(e.target.value)}}></input>
-                <datalist id="categories-container">
+                <datalist id="categories">
                     {categories && categories.map(category => {
                         return (
                             <option value={category.name} />
