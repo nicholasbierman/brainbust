@@ -23,11 +23,11 @@ const QuizzesAll = () => {
 
     return (
       <>
-        {quizzes.map((quiz) => {
+        {quizzes.length > 0 && quizzes.map((quiz) => {
           return (
             <div key={quiz.id} className="quiz-block">
               <div>{quiz.name}</div>
-              <div>{quiz.category}</div>
+              <div>{quiz.category_name}</div>
               <div className="profile-button-container">
                 <button
                     className="take-quiz-button"

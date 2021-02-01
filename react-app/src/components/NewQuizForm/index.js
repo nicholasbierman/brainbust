@@ -28,7 +28,6 @@ const NewQuizForm = () => {
         <>
             <form onSubmit={handleSubmit}>
                 <h1>Create New Quiz</h1>
-                <h2>A Quiz is a set of Questions</h2>
                 <input name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
                 <br></br>
                 <label for="category">Category</label>

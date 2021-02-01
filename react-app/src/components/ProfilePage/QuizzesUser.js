@@ -17,7 +17,7 @@ const QuizzesUser = () => {
 
     useEffect(()=> {
         dispatch(getUserQuizzes(user.id))
-    }, [dispatch])
+    }, [user.id])
 
     const directUserToQuiz = (quizId) => {
       dispatch(getQuestions(quizId));
@@ -26,11 +26,11 @@ const QuizzesUser = () => {
 
     return (
         <>
-        {quizzes.map((quiz) => {
+        {quizzes && quizzes.map((quiz) => {
             return (
               <div key={quiz.id} className="quiz-block">
                 <div>{quiz.name}</div>
-                <div>{quiz.category}</div>
+                <div>{quiz.category_name}</div>
                 <div className="profile-button-container">
                   <button
                     className="take-quiz-button"

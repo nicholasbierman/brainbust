@@ -37,5 +37,6 @@ class Quiz(db.Model, UserMixin):
             "questions": self.question_quantity,
             "private": self.is_private,
             "user": self.user_id,
-            "category": self.category_id
+            "category": self.category_id,
+            "category_name": self.category.name
         }

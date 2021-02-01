@@ -77,7 +77,8 @@ function reducer (state = initialState, action) {
             newState = Object.assign({}, state, { quizList: action.payload });
             return newState;
         case ADD_QUIZ:
-            newState = Object.assign({}, state, { quizList: action.payload });
+            newState = Object.assign({}, state );
+            newState.quizList = [...newState.quizList, action.payload]
             return newState;
         case DELETE_QUIZ:
             newState = Object.assign({}, state,);
