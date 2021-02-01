@@ -26,7 +26,8 @@ body {
 
 .page-container__side {
     grid-area: side;
-    background-color: rgba(117, 190, 218, 1);
+    border-top: none;
+    background-color: rgba(117, 190, 218, 88%);
     /* width: 80%; */
 }
 
