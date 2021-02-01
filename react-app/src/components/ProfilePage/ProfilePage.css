@@ -72,6 +72,14 @@ body {
     display: flex;
 }
 
+.quiz-block div:first-child {
+    margin-right: auto;
+}
+
+.quiz-block div:last-child {
+    margin-left: 50px;
+}
+
 h1.sidebar {
     color: white;
     display: flex;
@@ -126,6 +134,10 @@ form.new-quiz-form {
   input.new-quiz:focus {
     outline: 3px solid blue;
   } 
+
+  .profile-button-container {
+    display: inline;
+  }
 
   .profile-button-container > * {
       margin: 0 10px;
