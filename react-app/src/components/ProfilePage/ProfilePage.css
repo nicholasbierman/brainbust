@@ -11,6 +11,7 @@ body {
     /* grid-template-columns: 4fr 10fr;
     grid-template-rows: auto; */
     /* grid-template-rows: 1fr, 4fr; */
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "side head head head"
                          "side body body body";
 }
@@ -72,6 +73,14 @@ body {
     padding-left: 10px;
     padding-right: 15px;
     display: flex;
+}
+
+.quiz-block div:first-child {
+    margin-right: auto;
+}
+
+.quiz-block div:last-child {
+    margin-left: 20px;
 }
 
 h1.sidebar {
