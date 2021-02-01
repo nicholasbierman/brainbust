@@ -17,7 +17,6 @@ def quiz(id):
     quiz = Quiz.query.get(id)
     return quiz.to_dict()
 
-# creating a quiz
 
 @quiz_routes.route('/user/<int:id>')
 def get_quiz_questions(id):
@@ -43,8 +42,6 @@ def post_new_quiz():
         return quiz.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
-# deleting a quiz
-
 
 @quiz_routes.route("/<int:id>/delete", methods=["DELETE"])
 def post_delete_quiz(id):
@@ -53,7 +50,7 @@ def post_delete_quiz(id):
     db.session.commit()
     return {"message": "Very Nice Great Success"}
 
-# updating a quiz
+
 @quiz_routes.route("/<int:id>/update", methods=["PUT"])
 def post_update_quiz(id):
     content = request.json
@@ -67,7 +64,7 @@ def post_update_quiz(id):
     db.session.commit()
     return redirect(f'/api/quizzes/{id}')
 
-# retrieving quizzes by category
+
 @quiz_routes.route('/category/<int:id>')
 def get_quiz_by_category(id):
     quizzes = Quiz.query.filter(Quiz.category_id == id)
