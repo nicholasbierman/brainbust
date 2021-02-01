@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.quiz_routes import quiz_routes
 from .api.category_routes import category_routes
 from .api.question_routes import question_routes
+from .api.search_routes import search_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/session')
 app.register_blueprint(quiz_routes, url_prefix='/api/quizzes')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
 app.register_blueprint(question_routes, url_prefix='/api/question')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db, compare_type=True)
 
