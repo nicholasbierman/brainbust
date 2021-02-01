@@ -1,10 +1,10 @@
 from .auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, jsonify, request, redirect
-from app.models import Quiz, db
+from app.models import Quiz, Question, db
 from flask_login import login_required, current_user
 from ..forms.new_quiz_form import NewQuizForm
 quiz_routes = Blueprint('quizzes', __name__)
-
+import json
 
 @quiz_routes.route('/')
 def quizzes():
@@ -30,14 +30,27 @@ def post_new_quiz():
     form = NewQuizForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        questions = request.json["added_questions"]
         quiz = Quiz(
             name=form.data['name'],
             is_private=form.data['is_private'],
-            question_quantity=0,
+            question_quantity=len(questions),
             user_id=current_user.id,
             category_id=form.data["category_id"]
         )
         db.session.add(quiz)
+        db.session.flush()
+        for i in range(len(questions)):
+            new_question = Question(
+                question_number = i+1,
+                body = questions[i]["question_body"],
+                answer_1 = questions[i]["answer_1"],
+                answer_2 = questions[i]["answer_2"],
+                answer_3 = questions[i]["answer_3"],
+                correct_answer = questions[i]["correct_answer"],
+                quiz_id = quiz.id
+            )
+            db.session.add(new_question)
         db.session.commit()
         return quiz.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}

@@ -3,6 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .page-container {
     background-color: white;
     display: grid;
@@ -125,7 +126,7 @@ form.new-quiz-form {
 
   input.new-quiz:focus {
     outline: 3px solid blue;
-  } 
+  }
 
   .profile-button-container > * {
       margin: 0 10px;
