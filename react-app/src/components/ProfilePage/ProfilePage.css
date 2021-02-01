@@ -10,6 +10,7 @@ body {
     /* grid-template-columns: 4fr 10fr;
     grid-template-rows: auto; */
     /* grid-template-rows: 1fr, 4fr; */
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "side head head head"
                          "side body body body";
 }
