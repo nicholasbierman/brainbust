@@ -23,7 +23,7 @@ function QuestionBox({onClose}) {
     return (
       <div className="question-container">
         <h1>Add Question Here</h1>
-        <form className="question-form" onSubmit={handleSubmit}>
+        <form className="question-form">
           <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
@@ -64,7 +64,7 @@ function QuestionBox({onClose}) {
               onChange={(e) => setCorrectAnswer(e.target.value)}
               required
             />
-          <button type="submit">Add Question</button>
+          <button onClick = {handleSubmit}>Add Question</button>
         </form>
       </div>
     );

@@ -15,7 +15,10 @@ function QuestionBoxModal() {
 
   return (
     <>
-      <button style={style} onClick={() => setShowModal(true)}>New Question</button>
+      <button style={style} onClick={(e) => {
+        e.preventDefault()
+        setShowModal(true)}}
+        >New Question</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <QuestionBox onClose={() => setShowModal(false)}/>
