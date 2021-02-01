@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { addSingleQuiz } from '../../store/quiz';
+import Search from "./Search"
 
 
 const SideUserBar = () => {
@@ -27,6 +28,7 @@ const SideUserBar = () => {
     return (
         <div>
             <h1 className="sidebar">Welcome, {user.username}!</h1>
+            <Search />
             <div className="new-quiz-form">
                 <form onSubmit={handleSubmit}>
                     <h1>Create A New Quiz</h1>
