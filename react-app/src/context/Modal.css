@@ -22,4 +22,7 @@
   position: absolute;
   background-color:white;
   border-radius: 10%;
+  width: 20%;
+  height: auto;
+  padding: 25px 25px;
 }
