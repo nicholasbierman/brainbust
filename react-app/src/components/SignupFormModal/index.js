@@ -11,6 +11,10 @@ function SignupFormModal() {
     color: 'white',
     height: '100px',
     padding: '0 30px',
+    borderStyle: 'none',
+    outline: 'none',
+    fontWeight: 'bold',
+    cursor: 'pointer'
   };
 
   return (
