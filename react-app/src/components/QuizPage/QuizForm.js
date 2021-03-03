@@ -13,7 +13,6 @@ const QuizForm = ({ amountOfQuestions }) => {
     const currentQuiz = useSelector(state => state.quizzes.currentQuiz)
     const [index, setIndex] = useState(0)
     const [question, setQuestion] = useState({});
-    // const [score, setScore] = useState(0)
 
     useEffect(() => {
       console.log(id)
@@ -55,7 +54,6 @@ const QuizForm = ({ amountOfQuestions }) => {
     const handleClick = (choice) => {
         if (randomAnswerObj[choice]["correct_answer"]) {
           dispatch(updateScore(currentQuiz.score + 1, questions.length))
-          // console.log("STRIIIIING", score)
         }
         if(questions.length) {
             setIndex(index + 1)
@@ -75,29 +73,21 @@ const QuizForm = ({ amountOfQuestions }) => {
       <div className="quiz-button-container">
           <button className="quiz-button__quizform" onClick={() => {
             handleClick(1)
-            // console.log(score)
-            
           }}>
           {Object.values(randomAnswerObj[1])[0]}
         </button>
         <button className="quiz-button__quizform" onClick={() => {
             handleClick(2)
-            // console.log(score)
-            
           }}>
           {Object.values(randomAnswerObj[2])[0]}
         </button>
         <button className="quiz-button__quizform" onClick={() => {
             handleClick(3)
-            // console.log(score)
-            
           }}>
           {Object.values(randomAnswerObj[3])[0]}
         </button>
         <button className="quiz-button__quizform" onClick={() => {
             handleClick(4)
-            // console.log(score)
-            
           }}>
           {Object.values(randomAnswerObj[4])[0]}
         </button>

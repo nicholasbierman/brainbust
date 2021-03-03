@@ -16,7 +16,7 @@ const NavBar = ({ isLoaded }) => {
   const dispatch = useDispatch()
  
   const style = {
-    background: 'linear-gradient(0deg, rgba(117,190,218,88%) 0%, rgba(40,27,255,1) 100%)',
+    background: 'transparent',
     border: 0,
     color: 'white',
     height: '100px',
