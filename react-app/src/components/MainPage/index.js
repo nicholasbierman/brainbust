@@ -5,9 +5,6 @@ import { getCategoryQuizzes, getQuizzes } from "../../store/quiz";
 
 const MainPage = () => {
   const directUserToQuiz = (quizId) => {
-    console.log("hello", quizId);
-    //use redirect to go to quiz
-    //dispatch to set single (current) quiz in global state??
   };
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState();
@@ -22,7 +19,6 @@ const MainPage = () => {
   }, [dispatch, selectedCategory]);
   const handleChange = (e) => {
     const value = e.target.value;
-    console.log("VALUE", value);
     !value ? dispatch(getQuizzes()) : setSelectedCategory(value);
   };
   const quizCategories = categories.map((category) => {
