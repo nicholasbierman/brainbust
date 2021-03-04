@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { addSingleQuiz, emptyNewQuestions } from "../../store/quiz";
 import { getQuestions } from '../../store/question';
 import QuestionBoxModal from '../QuestionModal/index'
@@ -19,10 +19,6 @@ const SideUserBar = () => {
     const added_questions = useSelector(state => state.quizzes.newQuestions)
 
     const [errors, setErrors] = useState([]);
-
-    // useEffect(()=> {
-    //     dispatch(getQuestions(quiz.id))
-    // }, [quiz.id])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,39 +43,60 @@ const SideUserBar = () => {
 
 
     return (
-            <div>
-            <h1 className="sidebar">Welcome, { user.username }!</h1>
-            <Search />
-                <div className="new-quiz-form">
-                    <form onSubmit={handleSubmit}>
-                    <h1>Create A New Quiz</h1>
-                        <ul>
-                        {errors.map((error, i) => (
-                            <li key={i}>{error}</li>
-                        ))}
-                        </ul>
-                        <label className="new-quiz-form">Name:</label>
-                        <input className="new-quiz" name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
-                        <label className="new-quiz-form" for="category">Category:</label>
-                        <select onChange={(e) => setSelectedCategory(e.target.value)} name="category">
-                            {categories.map((category) => {
-                                return <option value={category.id}>{category.name}</option>
-                            })})
-                    </select>
-                        <label className="new-quiz-form" for="is_private">Private?</label>
-                        <input value={isPrivate} onChange={(e) => setIsPrivate(true)} name="is_private" type="checkbox"></input>
-                        <br />
-                        {added_questions.map((question) => {
-                            return <div>{question.question_body}</div>
-                        })}
-                        <br />
-                        <QuestionBoxModal/>
-                        <br />
-                        <button type="submit">Continue</button>
-                    </form>
-                </div>
-            </div>
-    )
+      <div>
+        <h1 className="sidebar">Welcome, {user.username}!</h1>
+        <Search />
+        <div className="new-quiz-form">
+          <form onSubmit={handleSubmit}>
+            <h1>Create A New Quiz</h1>
+            <ul>
+              {errors.map((error, i) => (
+                <li key={i}>{error}</li>
+              ))}
+            </ul>
+            <label className="new-quiz-form">Name:</label>
+            <input
+              className="new-quiz"
+              name="name"
+              type="text"
+              placeholder="e.g. Biology 101, Constitutional Law"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            ></input>
+            <label className="new-quiz-form" for="category">
+              Category:
+            </label>
+            <select
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              name="category"
+            >
+              {categories.map((category) => {
+                return <option value={category.id}>{category.name}</option>;
+              })}
+              )
+            </select>
+            <label className="new-quiz-form" for="is_private">
+              Private?
+            </label>
+            <input
+              value={isPrivate}
+              onChange={(e) => setIsPrivate(!isPrivate)}
+              name="is_private"
+              type="checkbox"
+              checked={isPrivate}
+            ></input>
+            <br />
+            {added_questions.map((question) => {
+              return <div>{question.question_body}</div>;
+            })}
+            <br />
+            <QuestionBoxModal />
+            <br />
+            <button type="submit">Continue</button>
+          </form>
+        </div>
+      </div>
+    );
 }
 
 export default SideUserBar;
