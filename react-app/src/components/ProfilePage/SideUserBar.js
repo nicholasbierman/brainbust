@@ -12,25 +12,34 @@ const SideUserBar = () => {
     const quiz = useSelector(state => state.session.quiz);
     const [name, setName] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedCategory, setSelectedCategory] = useState('');
     const dispatch = useDispatch();
     const categories = useSelector(state => state.categories.categories);
     const added_questions = useSelector(state => state.quizzes.newQuestions)
+
+    const [errors, setErrors] = useState([]);
 
     // useEffect(()=> {
     //     dispatch(getQuestions(quiz.id))
     // }, [quiz.id])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(
-            addSingleQuiz({
-                name,
-                is_private: isPrivate,
-                category_id: parseInt(selectedCategory),
-                added_questions
-            })
+        console.log(selectedCategory)
+        const data = await dispatch(
+                addSingleQuiz({
+                    name,
+                    is_private: isPrivate,
+                    category_id: parseInt(selectedCategory),
+                    added_questions
+                })
         );
+        setErrors([]);
+        if(data.errors) {
+            return setErrors(data.errors)
+        } else {
+            setName('')
+        }
     };
 
 
@@ -41,6 +50,11 @@ const SideUserBar = () => {
                 <div className="new-quiz-form">
                     <form onSubmit={handleSubmit}>
                     <h1>Create A New Quiz</h1>
+                        <ul>
+                        {errors.map((error, i) => (
+                            <li key={i}>{error}</li>
+                        ))}
+                        </ul>
                         <label className="new-quiz-form">Name:</label>
                         <input className="new-quiz" name="name" type="text" placeholder="e.g. Biology 101, Constitutional Law" onChange={ (e) => setName(e.target.value)} value={name}></input>
                         <label className="new-quiz-form" for="category">Category:</label>

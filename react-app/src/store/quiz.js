@@ -68,17 +68,18 @@ export const getCategoryQuizzes = (id) => async (dispatch) => {
 };
 
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
-const response = await fetch('/api/quizzes/new', {
+    const response = await fetch('/api/quizzes/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newQuiz)
     })
-    if (response.ok) {
-        const data = await response.json()
+    const data = await response.json();
+    if (!data.errors) {
         dispatch(addQuiz(data))
     }
+    return data;
 }
 
 export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
