@@ -14,7 +14,7 @@ import logo from "../../logo/brain.jpg"
 const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch()
- 
+
   const style = {
     background: 'linear-gradient(0deg, rgba(117,190,218,88%) 0%, rgba(40,27,255,1) 100%)',
     border: 0,

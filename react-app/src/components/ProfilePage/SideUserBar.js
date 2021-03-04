@@ -58,7 +58,7 @@ const SideUserBar = () => {
                         <br />
                         <QuestionBoxModal/>
                         <br />
-                        <button type="submit">Continue</button>
+                        <button id="new-quiz-submitter" type="submit">Continue</button>
                     </form>
                 </div>
             </div>

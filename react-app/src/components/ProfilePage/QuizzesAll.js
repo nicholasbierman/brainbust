@@ -28,7 +28,7 @@ const QuizzesAll = () => {
           return (
             <div key={quiz.id} className="quiz-block">
               <div>{quiz.name}</div>
-              <div>{quiz.category_name}</div>
+              <div className="quiz-block-category-display"><h4>Category:</h4>{quiz.category_name}</div>
               <div className="profile-button-container">
                 <button
                     className="take-quiz-button"
