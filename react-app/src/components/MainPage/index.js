@@ -5,6 +5,7 @@ import { getCategoryQuizzes, getQuizzes } from "../../store/quiz";
 
 const MainPage = () => {
   const directUserToQuiz = (quizId) => {
+    console.log("hello", quizId);
   };
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState();
@@ -46,7 +47,7 @@ const MainPage = () => {
       <h1>BrainBust Main Page</h1>
       <form>
         <select onChange={(e) => handleChange(e)} name="category">
-          <option selected disabled hidden>Filter By Category</option>
+          <option value="">Categories</option>
           {quizCategories}
         </select>
       </form>
