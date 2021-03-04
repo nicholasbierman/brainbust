@@ -5,6 +5,7 @@ const CLEAR_QUIZZES = 'quiz/clearQuizzes'
 const ADD_QUESTIONS = 'quiz/addQuestions'
 const UPDATE_SCORE = 'quiz/updateScore'
 const CLEAR_SCORE = 'quiz/clearScore'
+const CLEAR_QUESTIONS = 'quiz/clearQuestions'
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -43,6 +44,11 @@ export const searchQuizByTitle = (searchTerm) => async (dispatch) => {
 export const addQuestions = (question) => ({
     type: ADD_QUESTIONS,
     payload: question
+})
+
+export const emptyNewQuestions = () => ({
+    type: CLEAR_QUESTIONS,
+    payload: []
 })
 
 export const clearQuizzesThunk = () => async (dispatch) => {
@@ -108,6 +114,10 @@ function reducer (state = initialState, action) {
         case ADD_QUESTIONS:
             newState = Object.assign({}, state );
             newState.newQuestions = [...newState.newQuestions, action.payload]
+            return newState;
+        case CLEAR_QUESTIONS:
+            newState = Object.assign({}, state);
+            newState.newQuestions = action.payload;
             return newState;
         case DELETE_QUIZ:
             newState = Object.assign({}, state);

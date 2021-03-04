@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { addSingleQuiz } from '../../store/quiz';
+import { addSingleQuiz, emptyNewQuestions } from "../../store/quiz";
 import { getQuestions } from '../../store/question';
 import QuestionBoxModal from '../QuestionModal/index'
 import Search from "./Search"
+
 
 
 const SideUserBar = () => {
@@ -38,7 +39,9 @@ const SideUserBar = () => {
         if(data.errors) {
             return setErrors(data.errors)
         } else {
-            setName('')
+            setName('');
+            setIsPrivate(false);
+            dispatch(emptyNewQuestions());
         }
     };
 
