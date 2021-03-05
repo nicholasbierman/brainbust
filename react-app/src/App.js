@@ -9,7 +9,7 @@ import NewQuizForm from "./components/NewQuizForm"
 import QuizPage from "./components/QuizPage"
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +40,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
