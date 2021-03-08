@@ -33,7 +33,9 @@ const Contributors = () => {
         <a className="contributors-links" href="https://colie31.github.io/">
           Nichole O'Brien
         </a>
-        <a className="contributors-links" href="">
+        <a
+          className="contributors-links"
+          href="https://github.com/nicholasbierman">
           Nick Bierman
         </a>
         <a className="contributors-links" href="https://github.com/switfoth">
