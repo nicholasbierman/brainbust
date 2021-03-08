@@ -348,10 +348,20 @@ def seed_questions():
         quiz=quizzes[6]
     )
 
+    cos5 = Question(
+        question_number=4,
+        body="For chemicals to penetrate a healthy cuticle hair layer, they must have....",
+        answer_1="no pH",
+        answer_2="a neutral pH",
+        answer_3="an acidic pH",
+        correct_answer="an alkaline pH",
+        quiz=quizzes[6]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4}
+                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5}
 
     for question in questions:
         db.session.add(question)
