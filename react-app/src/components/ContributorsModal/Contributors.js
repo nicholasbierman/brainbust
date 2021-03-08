@@ -10,16 +10,20 @@ const Contributors = () => {
       <div className="contributors-title">Contributors</div>
       <div className="contributors-left">
         <a href="https://nhucleus.io/">
-          <img className="contributors-avatar" src={Nhuy} />
+          <img className="contributors-avatar" src={Nhuy} alt="Nhuy Phan" />
         </a>
         <a href="https://colie31.github.io/">
-          <img className="contributors-avatar" src={Nichole} />
+          <img
+            className="contributors-avatar"
+            src={Nichole}
+            alt="Nichole O'Brien"
+          />
+        </a>
+        <a href="https://github.com/nicholasbierman">
+          <img className="contributors-avatar" src={Nick} alt="Nick Bierman" />
         </a>
         <a href="">
-          <img className="contributors-avatar" src={Nick} />
-        </a>
-        <a href="">
-          <img className="contributors-avatar" src={Seth} />
+          <img className="contributors-avatar" src={Seth} alt="Seth Witforth" />
         </a>
       </div>
       <div className="contributors-right">
