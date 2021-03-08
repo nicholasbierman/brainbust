@@ -370,11 +370,11 @@ def seed_questions():
 
     la2 = Question(
         question_number=1,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="What is an augmented matrix?",
+        answer_1="A two-dimensional array",
+        answer_2="A binary search tree",
+        answer_3="A graph",
+        correct_answer="A linear system expressed through a rectangular array",
         quiz=quizzes[7]
     )
 
