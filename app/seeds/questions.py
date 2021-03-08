@@ -278,9 +278,20 @@ def seed_questions():
         quiz=quizzes[5]
     )
 
+    node3 = Question(
+        question_number=2,
+        body="What is the name of the node module that allows us to take user input",
+        answer_1="npm",
+        answer_2="nodejs.org",
+        answer_3="reactjs.org",
+        correct_answer="readline",
+        quiz=quizzes[5]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
-                 demo10,
-                 demo11, demo12, demo13, demo14, demo15, demo16, demo17, demo18, demo19, demo20, rails1, rails2, rails3, rails4, rails5, node1, node2}
+                 demo10, demo11, demo12, demo13, demo14, demo15, demo16,
+                 demo17, demo18, demo19, demo20, rails1, rails2, rails3,
+                 rails4, rails5, node1, node2, node3}
 
     for question in questions:
         db.session.add(question)
