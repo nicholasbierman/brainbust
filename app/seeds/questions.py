@@ -398,18 +398,18 @@ def seed_questions():
 
     la5 = Question(
         question_number=4,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="Which of the following is NOT a possible number of solutions for a linear system?",
+        answer_1="Zero",
+        answer_2="One",
+        answer_3="Infinity",
+        correct_answer="2",
         quiz=quizzes[7]
     )
 
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5, la1, la2, la3, la4}
+                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5, la1, la2, la3, la4, la5}
 
     for question in questions:
         db.session.add(question)
