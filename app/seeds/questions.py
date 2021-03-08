@@ -258,9 +258,20 @@ def seed_questions():
         quiz=quizzes[4]
     )
 
+    node1 = Question(
+        question_number=0,
+        body="The 'global object' in the Node runtime can be referenced with the name 'global'. What name can be used in browser runtimes to reference the global object?",
+        answer_1="browser",
+        answer_2="node",
+        answer_3="global",
+        correct_answer="window",
+        quiz=quizzes[5]
+    )
+
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10,
-                 demo11, demo12, demo13, demo14, demo15, demo16, demo17, demo18, demo19, demo20, rails1, rails2, rails3, rails4, rails5}
+                 demo11, demo12, demo13, demo14, demo15, demo16, demo17, demo18, demo19, demo20, rails1, rails2, rails3, rails4, rails5, node1}
 
     for question in questions:
         db.session.add(question)
