@@ -358,6 +358,56 @@ def seed_questions():
         quiz=quizzes[6]
     )
 
+    la1 = Question(
+        question_number=0,
+        body="Which option is NOT one of the three elementary row operations?",
+        answer_1="Add a constant times one row to another",
+        answer_2="Interchange two rows",
+        answer_3="Multiply a row through a nonzero constant",
+        correct_answer="Multiply a row by zero",
+        quiz=quizzes[7]
+    )
+
+    la2 = Question(
+        question_number=1,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[7]
+    )
+
+    la3 = Question(
+        question_number=2,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[7]
+    )
+
+    la4 = Question(
+        question_number=3,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[7]
+    )
+
+    la5 = Question(
+        question_number=4,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[7]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
