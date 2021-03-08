@@ -298,6 +298,16 @@ def seed_questions():
         quiz=quizzes[5]
     )
 
+    node5 = Question(
+        question_number=4,
+        body="What site should be used as a documentation reference for JavaScript in the Node runtime?",
+        answer_1="reactjs.org",
+        answer_2="npm",
+        answer_3="MDN",
+        correct_answer="nodejs.org",
+        quiz=quizzes[5]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
