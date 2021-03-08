@@ -288,6 +288,16 @@ def seed_questions():
         quiz=quizzes[5]
     )
 
+    node4 = Question(
+        question_number=3,
+        body="What is the name of the node module that allows us to perform operations on our local file system?",
+        answer_1="localFileSystem",
+        answer_2="localFS",
+        answer_3="fileSystem",
+        correct_answer="fs",
+        quiz=quizzes[5]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
