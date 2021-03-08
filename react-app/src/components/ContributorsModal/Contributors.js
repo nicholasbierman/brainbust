@@ -1,7 +1,8 @@
 import "./Contributors.css";
 import Nhuy from "./nhu-yphan.jpeg";
 import Nichole from "./nichole_obrien.jpeg";
-import Seth from "./seth_witfoth.PNG"
+import Seth from "./seth_witfoth.PNG";
+import Nick from "./nick_bierman.jpeg";
 
 const Contributors = () => {
   return (
@@ -15,7 +16,7 @@ const Contributors = () => {
           <img className="contributors-avatar" src={Nichole} />
         </a>
         <a href="">
-          <img className="contributors-avatar" src="" />
+          <img className="contributors-avatar" src={Nick} />
         </a>
         <a href="">
           <img className="contributors-avatar" src={Seth} />
