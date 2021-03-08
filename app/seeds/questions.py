@@ -390,11 +390,11 @@ def seed_questions():
 
     la4 = Question(
         question_number=3,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="Which of the following defines a linear equation where the constant term is zero?",
+        answer_1="A linear equation",
+        answer_2="A linear system",
+        answer_3="An ordered n-tuple",
+        correct_answer="A homogenous linear equation",
         quiz=quizzes[7]
     )
 
