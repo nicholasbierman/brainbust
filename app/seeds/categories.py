@@ -22,7 +22,7 @@ def seed_categories():
     )
 
     demo5 = Category(
-        name="Plumbing"
+        name="Sports Trivia"
     )
 
     demo6 = Category(
