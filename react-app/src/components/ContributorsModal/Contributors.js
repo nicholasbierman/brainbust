@@ -1,6 +1,7 @@
 import "./Contributors.css";
 import Nhuy from "./nhu-yphan.jpeg";
 import Nichole from "./nichole_obrien.jpeg";
+import Seth from "./seth_witfoth.png"
 
 const Contributors = () => {
   return (
@@ -17,7 +18,7 @@ const Contributors = () => {
           <img className="contributors-avatar" src="" />
         </a>
         <a href="">
-          <img className="contributors-avatar" src="" />
+          <img className="contributors-avatar" src={Seth} />
         </a>
       </div>
       <div className="contributors-right">
@@ -30,7 +31,7 @@ const Contributors = () => {
         <a className="contributors-links" href="">
           Nick Bierman
         </a>
-        <a className="contributors-links" href="">
+        <a className="contributors-links" href="https://github.com/switfoth">
           Seth Witfoth
         </a>
       </div>
