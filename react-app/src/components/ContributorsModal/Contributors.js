@@ -1,7 +1,7 @@
 import "./Contributors.css";
 import Nhuy from "./nhu-yphan.jpeg";
 import Nichole from "./nichole_obrien.jpeg";
-import Seth from "./seth_witfoth.png"
+import Seth from "./seth_witfoth.PNG"
 
 const Contributors = () => {
   return (
