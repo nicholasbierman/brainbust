@@ -416,10 +416,20 @@ def seed_questions():
         quiz=quizzes[8]
     )
 
+    music2 = Question(
+        question_number=1,
+        body="Which record won Record of The Year?",
+        answer_1="Lady Gaga & Bradley Cooper - Shallow",
+        answer_2="Brandi Carlile - The Joke",
+        answer_3="Drake - God's Plan",
+        correct_answer="Childish Gambino - This Is America",
+        quiz=quizzes[8]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5, la1, la2, la3, la4, la5, music1}
+                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5, la1, la2, la3, la4, la5, music1, music2}
 
     for question in questions:
         db.session.add(question)
