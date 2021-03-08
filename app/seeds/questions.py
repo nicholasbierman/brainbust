@@ -338,10 +338,20 @@ def seed_questions():
         quiz=quizzes[6]
     )
 
+    cos4 = Question(
+        question_number=3,
+        body="The ______ is a tiny, involuntary muscle in the base of the hair follicle",
+        answer_1="medulla",
+        answer_2="dermal papilla",
+        answer_3="tinea",
+        correct_answer="arrector pili",
+        quiz=quizzes[6]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3}
+                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4}
 
     for question in questions:
         db.session.add(question)
