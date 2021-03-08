@@ -308,10 +308,20 @@ def seed_questions():
         quiz=quizzes[5]
     )
 
+    cos1 = Question(
+        question_number=0,
+        body="What are the two parts of a mature strand of human hair?",
+        answer_1="dermis and epidermis",
+        answer_2="hair shaft and hair follicle",
+        answer_3="hair root and hair follicle",
+        correct_answer="hair shaft and hair root",
+        quiz=quizzes[6]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3}
+                 rails4, rails5, node1, node2, node3, cos1}
 
     for question in questions:
         db.session.add(question)
