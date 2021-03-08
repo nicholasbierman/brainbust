@@ -380,11 +380,11 @@ def seed_questions():
 
     la3 = Question(
         question_number=2,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="What is a linear system?",
+        answer_1="An infinite set of linear equations",
+        answer_2="A three-dimensional array",
+        answer_3="The same thing as an augmented matrix",
+        correct_answer="A finite set of linear equations",
         quiz=quizzes[7]
     )
 
