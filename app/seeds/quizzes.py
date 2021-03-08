@@ -61,7 +61,16 @@ def seed_quizzes():
         user=users[0],
         category=categories[0])
 
-    quizzes = {demo1, demo2, demo3, demo4, demo5, demo6}
+    demo7 = Quiz(
+        name="Properties of Hair and Scalp",
+        hashed_password=None,
+        is_private=False,
+        question_quantity=5,
+        user=users[0],
+        category=categories[5]
+    )
+
+    quizzes = {demo1, demo2, demo3, demo4, demo5, demo6, demo7}
     for quiz in quizzes:
         db.session.add(quiz)
         db.session.commit()
