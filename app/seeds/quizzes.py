@@ -53,13 +53,27 @@ def seed_quizzes():
         user=users[0],
         category=categories[0])
 
-    db.session.add(demo1)
-    db.session.add(demo2)
-    db.session.add(demo3)
-    db.session.add(demo4)
-    db.session.add(demo5)
+    demo6 = Quiz(
+        name="Learn Node.js",
+        hashed_password=None,
+        is_private=False,
+        question_quantity=5,
+        user=users[0],
+        category=categories[0])
 
-    db.session.commit()
+    quizzes = {demo1, demo2, demo3, demo4, demo5, demo6}
+    for quiz in quizzes:
+        db.session.add(quiz)
+        db.session.commit()
+        db.session.flush()
+
+    # db.session.add(demo1)
+    # db.session.add(demo2)
+    # db.session.add(demo3)
+    # db.session.add(demo4)
+    # db.session.add(demo5)
+
+    # db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
