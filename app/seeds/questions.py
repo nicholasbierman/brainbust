@@ -428,11 +428,11 @@ def seed_questions():
 
     music3 = Question(
         question_number=2,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="Which album won the award for Best R&B Album?",
+        answer_1="Leon Bridges - Good Things",
+        answer_2="Lalah Hathaway - Honestly",
+        answer_3="PJ Morton - Gumbo Unplugged",
+        correct_answer="H.E.R. - H.E.R.",
         quiz=quizzes[8]
     )
 
