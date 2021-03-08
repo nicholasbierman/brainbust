@@ -448,11 +448,11 @@ def seed_questions():
 
     music5 = Question(
         question_number=4,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="Which song won the award for Best Rap Song?",
+        answer_1="Kendrick Lamar, Jay Rock, Future, & James Blake - King's Dead",
+        answer_2="Jay Rock - Win",
+        answer_3="Eminem ft. Joyner Lucas - Lucky You",
+        correct_answer="Drake - God's Plan",
         quiz=quizzes[8]
     )
 
