@@ -16,12 +16,9 @@ function App() {
   const sessionUser = useSelector((state) => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    if (sessionUser) {
-      dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    } else {
-      setIsLoaded(true);
-    }
-  }, [dispatch, sessionUser]);
+    console.log('APP COMPONENT')
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch]);
 
   return (
     <>
