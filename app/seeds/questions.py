@@ -456,6 +456,56 @@ def seed_questions():
         quiz=quizzes[8]
     )
 
+    cooking1 = Question(
+        question_number=0,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[9]
+    )
+
+    cooking2 = Question(
+        question_number=1,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[9]
+    )
+
+    cooking3 = Question(
+        question_number=2,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[9]
+    )
+
+    cooking4 = Question(
+        question_number=3,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[9]
+    )
+
+    cooking5 = Question(
+        question_number=4,
+        body="",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[9]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
