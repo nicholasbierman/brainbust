@@ -478,11 +478,11 @@ def seed_questions():
 
     cooking3 = Question(
         question_number=2,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="A menu style in which individual items are priced separately",
+        answer_1="Concasse",
+        answer_2="A La Mode",
+        answer_3="Family Style",
+        correct_answer="A La Carte",
         quiz=quizzes[9]
     )
 
