@@ -507,12 +507,60 @@ def seed_questions():
         quiz=quizzes[9]
     )
 
+    sports1 = Question(
+        question_number=0,
+        body="Which 2020-21 NBA All Star led the NBA in scoring this season?",
+        answer_1="Donovan Mitchell",
+        answer_2="Kevin Durant",
+        answer_3="James Harden",
+        correct_answer="Bradley Beal",
+        quiz=quizzes[10]
+    )
+    sports2 = Question(
+        question_number=1,
+        body="Who was the first starter selected in the All Star Draft?",
+        answer_1="James Harden",
+        answer_2="Nikola Jokic",
+        answer_3="Kyrie Irving",
+        correct_answer="Giannis Antetokounmpo",
+        quiz=quizzes[10]
+    )
+    sports3 = Question(
+        question_number=2,
+        body="Who won the 2020-21 NBA Slam Dunk Contest?",
+        answer_1="Ben Simmons",
+        answer_2="Obi Toppin",
+        answer_3="Cassius Stanley",
+        correct_answer="Anfernee Simons",
+        quiz=quizzes[10]
+    )
+    sports4 = Question(
+        question_number=3,
+        body="Who won the 2020-21 NBA 3-Point Contest?",
+        answer_1="Kevin Durant",
+        answer_2="James Harden",
+        answer_3="Seth Curry",
+        correct_answer="Stephen Curry",
+        quiz=quizzes[10]
+    )
+    sports5 = Question(
+        question_number=4,
+        body="""Who received the highest number of votes (and was therefore
+                 the first captain) in the 2020-21 NBA All Star game?""",
+        answer_1="",
+        answer_2="",
+        answer_3="",
+        correct_answer="",
+        quiz=quizzes[10]
+    )
+
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
                  rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4,
                  cos5, la1, la2, la3, la4, la5, music1, music2, music3, music4,
-                 music5, cooking1, cooking2, cooking3, cooking4, cooking5}
+                 music5, cooking1, cooking2, cooking3, cooking4, cooking5,
+                 sports1, sports2, sports3, sports4, sports5}
 
     for question in questions:
         db.session.add(question)
