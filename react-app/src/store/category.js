@@ -6,7 +6,7 @@ const setCategories = (categories) => ({
 })
 
 export const getCategories = () => async (dispatch) => {
-    const res = await fetch('/api/categories')
+    const res = await fetch('/api/categories/')
     const data = await res.json();
     dispatch(setCategories(data.categories))
 }

@@ -50,7 +50,7 @@ export const clearQuizzesThunk = () => async (dispatch) => {
 };
 
 export const getQuizzes = () => async (dispatch) => {
-    const res = await fetch('/api/quizzes')
+    const res = await fetch('/api/quizzes/')
     const data = await res.json();
     dispatch(setQuizzes(data.quizzes))
 };
