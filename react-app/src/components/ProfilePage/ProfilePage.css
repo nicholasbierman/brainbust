@@ -38,6 +38,7 @@ body {
 .page-container__body {
     grid-area: body;
     height: 100vh;
+    overflow: scroll;
 }
 
 /* UserpageBody.js  */
