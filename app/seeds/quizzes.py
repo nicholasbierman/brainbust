@@ -97,8 +97,18 @@ def seed_quizzes():
         category=categories[8]
     )
 
+    demo11 = Quiz(
+        name="NBA All Stars 2020-21",
+        hashed_password=None,
+        is_private=False,
+        question_quantity=5,
+        user=users[0],
+        category=categories[4]
+    )
+
     quizzes = {demo1, demo2, demo3, demo4, demo5,
-               demo6, demo7, demo8, demo9, demo10}
+               demo6, demo7, demo8, demo9, demo10,
+               demo11}
     for quiz in quizzes:
         db.session.add(quiz)
         db.session.commit()
