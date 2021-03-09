@@ -488,21 +488,22 @@ def seed_questions():
 
     cooking4 = Question(
         question_number=3,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="To cook in an open pan in a small amount of fat with high heat",
+        answer_1="Flambé",
+        answer_2="Grille",
+        answer_3="Burn",
+        correct_answer="Sauté",
         quiz=quizzes[9]
     )
 
     cooking5 = Question(
         question_number=4,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="""An hors d'oeurve made of crackers or toasted bread.
+                Topped with cheese, caviar, or anchovies.""",
+        answer_1="Grille",
+        answer_2="Sauté",
+        answer_3="Flambé",
+        correct_answer="Canapé",
         quiz=quizzes[9]
     )
 
