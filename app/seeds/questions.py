@@ -458,21 +458,21 @@ def seed_questions():
 
     cooking1 = Question(
         question_number=0,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="The preparation of a tomato, first by peeling and seeding it, and then dicing the flesh rom the fruit.",
+        answer_1="Tomato Concatenation",
+        answer_2="A La Tomatoe",
+        answer_3="Kimbo (tomato) Slice",
+        correct_answer="Concasse (de tomatoe)",
         quiz=quizzes[9]
     )
 
     cooking2 = Question(
         question_number=1,
-        body="",
-        answer_1="",
-        answer_2="",
-        answer_3="",
-        correct_answer="",
+        body="Meat served with its own natural juices or gravy",
+        answer_1="Country Style",
+        answer_2="A La Bistec",
+        answer_3="A La Carte",
+        correct_answer="Au Jus",
         quiz=quizzes[9]
     )
 
@@ -509,7 +509,9 @@ def seed_questions():
     questions = {demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9,
                  demo10, demo11, demo12, demo13, demo14, demo15, demo16,
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
-                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4, cos5, la1, la2, la3, la4, la5, music1, music2, music3, music4, music5}
+                 rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4,
+                 cos5, la1, la2, la3, la4, la5, music1, music2, music3, music4,
+                 music5}
 
     for question in questions:
         db.session.add(question)
