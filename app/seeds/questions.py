@@ -512,7 +512,7 @@ def seed_questions():
                  demo17, demo18, demo19, demo20, rails1, rails2, rails3,
                  rails4, rails5, node1, node2, node3, cos1, cos2, cos3, cos4,
                  cos5, la1, la2, la3, la4, la5, music1, music2, music3, music4,
-                 music5}
+                 music5, cooking1, cooking2, cooking3, cooking4, cooking5}
 
     for question in questions:
         db.session.add(question)
