@@ -1,17 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { addSingleQuiz, emptyNewQuestions } from "../../store/quiz";
-import { getQuestions } from '../../store/question';
 import QuestionBoxModal from '../QuestionModal/index'
 import Search from "./Search"
 
 
 
 const SideUserBar = ({ categories }) => {
-    // const categories = useSelector(state => state.categories.categories);
     const user = useSelector(state => state.session.user);
-    const quiz = useSelector(state => state.session.quiz);
     const [name, setName] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(categories[0].id);
@@ -20,10 +17,9 @@ const SideUserBar = ({ categories }) => {
 
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(selectedCategory)
-        const data = await dispatch(
+        const data = dispatch(
                 addSingleQuiz({
                     name,
                     is_private: isPrivate,
@@ -80,7 +76,7 @@ const SideUserBar = ({ categories }) => {
                 })}
               )
             </select>
-            <label className="new-quiz-form" for="is_private">
+            <label className="new-quiz-form" htmlFor="is_private">
               Private?
             </label>
             <input

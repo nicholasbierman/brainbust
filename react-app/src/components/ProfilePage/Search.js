@@ -12,7 +12,6 @@ const Search = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(searchItem)
         dispatch(searchQuizByTitle(searchItem))
         setSearchItem("")
     }

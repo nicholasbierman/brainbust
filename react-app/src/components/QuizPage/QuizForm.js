@@ -15,7 +15,6 @@ const QuizForm = ({ amountOfQuestions }) => {
     const [question, setQuestion] = useState({});
 
     useEffect(() => {
-      console.log(id)
       dispatch(getQuestions(id));
     }, [id, dispatch]);
 

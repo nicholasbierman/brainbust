@@ -83,7 +83,6 @@ export const addSingleQuiz = (newQuiz) => async (dispatch) => {
     })
     const data = await response.json();
     if (!data.errors) {
-        console.log("data", data)
         dispatch(addQuiz(data))
     }
     return data;

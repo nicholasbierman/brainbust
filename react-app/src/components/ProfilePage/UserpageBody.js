@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import QuizzesAll from "./QuizzesAll"
 import QuizzesUser from "./QuizzesUser"
 import "./ProfilePage.css"
 import { getQuizzes } from '../../store/quiz'
 
 const UserpageBody = ({ quizzes }) => {
-  // const quizzes = useSelector(state => state.quizzes.quizList);
   const [displayQuizzes, setDisplayQuizzes] = useState("All")
   const dispatch = useDispatch()
 
