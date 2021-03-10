@@ -8,14 +8,14 @@ import Search from "./Search"
 
 
 
-const SideUserBar = () => {
+const SideUserBar = ({ categories }) => {
+    // const categories = useSelector(state => state.categories.categories);
     const user = useSelector(state => state.session.user);
     const quiz = useSelector(state => state.session.quiz);
     const [name, setName] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(categories[0].id);
     const dispatch = useDispatch();
-    const categories = useSelector(state => state.categories.categories);
     const added_questions = useSelector(state => state.quizzes.newQuestions)
 
     const [errors, setErrors] = useState([]);
@@ -63,16 +63,21 @@ const SideUserBar = () => {
               onChange={(e) => setName(e.target.value)}
               value={name}
             ></input>
-            <label className="new-quiz-form" for="category">
+            <label className="new-quiz-form" htmlFor="category">
               Category:
             </label>
             <select
               onChange={(e) => setSelectedCategory(e.target.value)}
               name="category"
             >
-              {categories.map((category) => {
-                return <option value={category.id}>{category.name}</option>;
-              })}
+              {categories &&
+                categories.map((category, i) => {
+                  return (
+                    <option key={i} value={category.id}>
+                      {category.name}
+                    </option>
+                  );
+                })}
               )
             </select>
             <label className="new-quiz-form" for="is_private">

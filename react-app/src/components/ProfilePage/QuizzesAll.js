@@ -4,17 +4,18 @@ import { getQuizzes, clearScore } from "../../store/quiz"
 import { getQuestions } from "../../store/question";
 import { useHistory } from "react-router-dom";
 
-const QuizzesAll = () => {
+const QuizzesAll = ({ quizzes }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    console.log("quizzes", quizzes)
 
-    const quizzes = useSelector(state => {
-        return state.quizzes.quizList
-    })
+    // const quizzes = useSelector(state => {
+    //     return state.quizzes.quizList
+    // })
 
-    useEffect(()=> {
-        dispatch(getQuizzes())
-    },[dispatch])
+    // useEffect(()=> {
+    //     dispatch(getQuizzes())
+    // },[dispatch])
 
   const directUserToQuiz = (quizId) => {
     dispatch(clearScore());
@@ -25,6 +26,7 @@ const QuizzesAll = () => {
     return (
       <>
         {quizzes.length > 0 && quizzes.map((quiz) => {
+          console.log(quiz.name)
           return (
             <div key={quiz.id} className="quiz-block">
               <div>{quiz.name}</div>

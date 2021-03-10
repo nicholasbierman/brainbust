@@ -10,6 +10,7 @@ import "./ProfilePage.css"
 
 const ProfilePage = () => {
   const user = useSelector(state => state.session.user);
+  const quizzes = useSelector(state => state.quizzes.quizList)
   
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,6 +18,7 @@ const ProfilePage = () => {
     dispatch(getCategories());
   }, [dispatch, user])
   
+  const categories = useSelector(state => state.categories.categories)
 
       return (
         <>
@@ -26,10 +28,10 @@ const ProfilePage = () => {
               <TopDisplay />
             </div>
             <div className="page-container__side">
-              <SideUserBar />
+              {categories && <SideUserBar categories={categories} />}
             </div>
             <div className="page-container__body">
-              <UserpageBody />
+              <UserpageBody quizzes={quizzes} />
             </div>
           </div>
         </>
