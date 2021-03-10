@@ -5,7 +5,6 @@ import { getCategoryQuizzes, getQuizzes } from "../../store/quiz";
 
 const MainPage = () => {
   const directUserToQuiz = (quizId) => {
-    console.log("hello", quizId);
   };
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState();

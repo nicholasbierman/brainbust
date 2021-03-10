@@ -22,7 +22,7 @@ const Contributors = () => {
         <a href="https://github.com/nicholasbierman">
           <img className="contributors-avatar" src={Nick} alt="Nick Bierman" />
         </a>
-        <a href="">
+        <a href="https://github.com/switfoth">
           <img className="contributors-avatar" src={Seth} alt="Seth Witforth" />
         </a>
       </div>
