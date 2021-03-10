@@ -11,7 +11,7 @@ const SideUserBar = ({ categories }) => {
     const user = useSelector(state => state.session.user);
     const [name, setName] = useState('');
     const [isPrivate, setIsPrivate] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState(categories[0].id);
+    const [selectedCategory, setSelectedCategory] = useState('');
     const dispatch = useDispatch();
     const added_questions = useSelector(state => state.quizzes.newQuestions)
 
@@ -19,11 +19,12 @@ const SideUserBar = ({ categories }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         const data = dispatch(
                 addSingleQuiz({
                     name,
                     is_private: isPrivate,
-                    category_id: parseInt(selectedCategory),
+                    category_id: selectedCategory ? parseInt(selectedCategory) : categories[0].id,
                     added_questions
                 })
         );
@@ -62,20 +63,20 @@ const SideUserBar = ({ categories }) => {
             <label className="new-quiz-form" htmlFor="category">
               Category:
             </label>
+            {categories && (
             <select
               onChange={(e) => setSelectedCategory(e.target.value)}
               name="category"
             >
-              {categories &&
-                categories.map((category, i) => {
+                {categories.map((category, i) => {
                   return (
                     <option key={i} value={category.id}>
                       {category.name}
                     </option>
                   );
                 })}
-              )
-            </select>
+                </select>
+              )}
             <label className="new-quiz-form" htmlFor="is_private">
               Private?
             </label>
