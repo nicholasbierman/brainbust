@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { getQuizzes, clearScore } from "../../store/quiz"
 import { getQuestions } from "../../store/question";
 import { useHistory } from "react-router-dom";
@@ -12,9 +12,9 @@ const QuizzesAll = ({ quizzes }) => {
     //     return state.quizzes.quizList
     // })
 
-    // useEffect(()=> {
-    //     dispatch(getQuizzes())
-    // },[dispatch])
+    useEffect(()=> {
+        dispatch(getQuizzes())
+    },[dispatch])
 
   const directUserToQuiz = (quizId) => {
     dispatch(clearScore());

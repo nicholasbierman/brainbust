@@ -9,8 +9,6 @@ const SideQuizBar = () => {
     setAverage((currentQuiz.score / currentQuiz.totalQuestions) * 100);
   }, [currentQuiz]);
 
-  const [currentScore, finalScore] = useState(null);
-
   const style = {
     height: `${average}%`
   }
@@ -22,7 +20,7 @@ const SideQuizBar = () => {
       <h1>Your Score:</h1>
         <h2>{currentQuiz.score}</h2>
       <div className="score-meter-outter">
-        <div className={average <= 40 ? "score-meter low" : average == 100 ? "score-meter full" : "score-meter"} style={style}>
+        <div className={average <= 40 ? "score-meter low" : average === 100 ? "score-meter full" : "score-meter"} style={style}>
         </div>
       </div>
     </div>
