@@ -14,7 +14,7 @@ const UserpageBody = () => {
   if (displayQuizzes === "User") {
     display = <QuizzesUser />;
   } else {
-    display = <QuizzesAll />
+    display = <QuizzesAll quizzes={quizzes} />
   }
 
   const handleClick = () => {

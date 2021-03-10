@@ -17,6 +17,7 @@ const ProfilePage = () => {
     dispatch(getCategories());
   }, [dispatch, user])
   
+  const categories = useSelector(state => state.categories.categories)
 
       return (
         <>
@@ -26,7 +27,7 @@ const ProfilePage = () => {
               <TopDisplay />
             </div>
             <div className="page-container__side">
-              <SideUserBar />
+              {categories && <SideUserBar categories={categories} />}
             </div>
             <div className="page-container__body">
               <UserpageBody />
