@@ -5,8 +5,8 @@ import QuizzesUser from "./QuizzesUser"
 import "./ProfilePage.css"
 import { getQuizzes } from '../../store/quiz'
 
-const UserpageBody = () => {
-  const quizzes = useSelector(state => state.quizzes.quizList);
+const UserpageBody = ({ quizzes }) => {
+  // const quizzes = useSelector(state => state.quizzes.quizList);
   const [displayQuizzes, setDisplayQuizzes] = useState("All")
   const dispatch = useDispatch()
 

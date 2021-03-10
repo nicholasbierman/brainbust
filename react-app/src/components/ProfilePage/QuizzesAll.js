@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 const QuizzesAll = ({ quizzes }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    console.log("quizzes", quizzes)
 
     // const quizzes = useSelector(state => {
     //     return state.quizzes.quizList
@@ -25,6 +26,7 @@ const QuizzesAll = ({ quizzes }) => {
     return (
       <>
         {quizzes.length > 0 && quizzes.map((quiz) => {
+          console.log(quiz.name)
           return (
             <div key={quiz.id} className="quiz-block">
               <div>{quiz.name}</div>
