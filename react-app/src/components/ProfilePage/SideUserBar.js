@@ -75,7 +75,6 @@ const SideUserBar = ({ categories }) => {
                   </option>
                 );
               })}
-            )
           </select>
           <label className="new-quiz-form" htmlFor="is_private">
             Private?
