@@ -9,13 +9,14 @@ import NewQuizForm from "./components/NewQuizForm"
 import QuizPage from "./components/QuizPage"
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
+    console.log('APP COMPONENT')
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
@@ -40,6 +41,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
