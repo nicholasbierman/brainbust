@@ -24,7 +24,7 @@ const SideUserBar = ({ categories }) => {
                 addSingleQuiz({
                     name,
                     is_private: isPrivate,
-                    category_id: selectedCategory ? parseInt(selectedCategory) : categories[0].id,
+                    category_id: selectedCategory ? parseInt(selectedCategory) : parseInt(categories[0].id),
                     added_questions
                 })
         );
