@@ -48,7 +48,7 @@ const SideUserBar = () => {
                             {categories.map((category) => {
                                 return <option value={category.id}>{category.name}</option>
                             })})
-                    </select>
+                        </select>
                         <label className="new-quiz-form" for="is_private">Private?</label>
                         <input value={isPrivate} onChange={(e) => setIsPrivate(true)} name="is_private" type="checkbox"></input>
                         <br />
