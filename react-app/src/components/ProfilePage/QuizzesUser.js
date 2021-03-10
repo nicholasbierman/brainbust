@@ -24,6 +24,13 @@ const QuizzesUser = () => {
       history.push(`/quiz/${quizId}`);
     };
 
+    //get quiz info
+    //show modal of quiz info
+    //
+    // const handleEdit = () => {
+
+    // }
+
     return (
         <>
         {quizzes && quizzes.map((quiz) => {

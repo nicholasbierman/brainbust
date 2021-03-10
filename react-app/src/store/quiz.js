@@ -5,6 +5,7 @@ const CLEAR_QUIZZES = 'quiz/clearQuizzes'
 const ADD_QUESTIONS = 'quiz/addQuestions'
 const UPDATE_SCORE = 'quiz/updateScore'
 const CLEAR_SCORE = 'quiz/clearScore'
+const CLEAR_QUESTIONS = 'quiz/clearQuestions'
 
 const addQuiz = (quiz) => ({
     type: ADD_QUIZ,
@@ -45,6 +46,11 @@ export const addQuestions = (question) => ({
     payload: question
 })
 
+export const emptyNewQuestions = () => ({
+    type: CLEAR_QUESTIONS,
+    payload: []
+})
+
 export const clearQuizzesThunk = () => async (dispatch) => {
     dispatch(clearQuizzes())
 };
@@ -68,17 +74,18 @@ export const getCategoryQuizzes = (id) => async (dispatch) => {
 };
 
 export const addSingleQuiz = (newQuiz) => async (dispatch) => {
-const response = await fetch('/api/quizzes/new', {
+    const response = await fetch('/api/quizzes/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newQuiz)
     })
-    if (response.ok) {
-        const data = await response.json()
+    const data = await response.json();
+    if (!data.errors) {
         dispatch(addQuiz(data))
     }
+    return data;
 }
 
 export const deleteSingleQuiz = (quizToDelete) => async (dispatch) => {
@@ -107,6 +114,10 @@ function reducer (state = initialState, action) {
         case ADD_QUESTIONS:
             newState = Object.assign({}, state );
             newState.newQuestions = [...newState.newQuestions, action.payload]
+            return newState;
+        case CLEAR_QUESTIONS:
+            newState = Object.assign({}, state);
+            newState.newQuestions = action.payload;
             return newState;
         case DELETE_QUIZ:
             newState = Object.assign({}, state);
