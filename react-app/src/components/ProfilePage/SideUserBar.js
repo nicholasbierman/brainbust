@@ -94,7 +94,7 @@ const SideUserBar = ({ categories }) => {
             <br />
             <QuestionBoxModal />
             <br />
-            <button type="submit">Continue</button>
+            <button type="submit">Create Quiz</button>
           </form>
         </div>
       </div>
