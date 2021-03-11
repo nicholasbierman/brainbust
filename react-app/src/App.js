@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Footer from "./components/Footer";
 
+import Carousel from "./components/Carousel"
+
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -33,7 +35,7 @@ function App() {
           </Route>
           <Route path="/" exact>
             {sessionUser && <Redirect to="/profile" />}
-            <MainPage />
+            <Carousel />
           </Route>
           <Route path="/quizzes/new">
             <NewQuizForm />
