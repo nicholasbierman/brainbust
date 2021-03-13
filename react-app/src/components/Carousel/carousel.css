@@ -2,3 +2,20 @@
 .awssld__box {
     z-index: 0;
 }
+
+.awssld {
+
+--slider-height-percentage: 60%;
+--slider-transition-duration: 700ms;
+--organic-arrow-thickness: 4px;
+--organic-arrow-border-radius: 0px;
+--organic-arrow-height: 40px;
+--organic-arrow-color: rgba(40,27,255,1);
+--control-button-width: 10%;
+--control-button-height: 25%;
+--control-button-background: transparent;
+--control-bullet-color: rgba(40,27,255,1);
+--control-bullet-active-color: rgba(40,27,255,1);
+--loader-bar-color:rgba(117,190,218,1);
+--loader-bar-height: 6px;
+}
