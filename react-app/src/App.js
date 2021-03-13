@@ -27,18 +27,17 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/profile" exact>
-            {sessionUser && <ProfilePage />}
-            {!sessionUser && <Redirect to="/" />}
+            {sessionUser ? <ProfilePage /> : <Redirect to="/" />}
           </Route>
           <Route path="/quiz/:id" exact>
-            <QuizPage />
+            {sessionUser ? <QuizPage /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/quizzes/new">
+            <NewQuizForm />
           </Route>
           <Route path="/" exact>
             {sessionUser && <Redirect to="/profile" />}
             <Carousel />
-          </Route>
-          <Route path="/quizzes/new">
-            <NewQuizForm />
           </Route>
         </Switch>
       )}
