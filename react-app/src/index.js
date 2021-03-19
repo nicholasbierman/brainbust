@@ -15,7 +15,6 @@ import * as quizActions from './store/quiz'
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
-
   window.csrfFetch = fetch;
   window.store = store;
   window.sessionActions = sessionActions;
